@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kab">
+        <item>Malang</item>
+        <item>Kota Malang</item>
+        <item>Kota Batu</item>
+        <item>Mojokerto</item>
+        <item>Pasuruan</item>
+        <item>Madiun</item>
+        <item>Jombang</item>
+        <item>Jember</item>
+    </string-array>
+    <string-array name="kec">
+        <item>Donomulyo</item>
+        <item>Kota Malang</item>
+        <item>Kota Batu</item>
+        <item>Mojokerto</item>
+        <item>Pasuruan</item>
+        <item>Madiun</item>
+        <item>Jombang</item>
+        <item>Jember</item>
+    </string-array>
+    <string-array name="desa">
+        <item>Tlogo Sari</item>
+        <item>Kota Malang</item>
+        <item>Kota Batu</item>
+        <item>Mojokerto</item>
+        <item>Pasuruan</item>
+        <item>Madiun</item>
+        <item>Jombang</item>
+        <item>Jember</item>
+    </string-array>
+    <string-array name="jenis_lahan">
+        <item>Lahan Kering</item>
+        <item>Lahan Basah</item>
+        <item>Lahan Rawa</item>
+    </string-array>
+    <string-array name="bahan_induk">
+        <item>Aluvium</item>
+        <item>Volkan</item>
+        <item>Batugamping/Napal</item>
+        <item>Batuliat</item>
+        <item>Batupasir</item>
+        <item>Aluvium-marin</item>
+        <item>Marin</item>
+        <item>Organik/Gambut</item>
+    </string-array>
+    <string-array name="penggunaan_lahan">
+        <item>	Sawah irigasi	</item>
+        <item>	Sawah tadah hujan	</item>
+        <item>	Sawah tambak	</item>
+        <item>	Rawa	</item>
+        <item>	Tambak	</item>
+        <item>	Tegalan/Kebun	</item>
+        <item>	Padang rumput	</item>
+        <item>	Perkebunan rakyat	</item>
+        <item>	Perkebunan swasta	</item>
+        <item>	Perhutani	</item>
+        <item>	Hutan	</item>
+    </string-array>
+    <string-array name="relief">
+        <item>	Datar</item>
+        <item>	Berombak</item>
+        <item>	Bergelombang</item>
+        <item>	Berbukit kecil</item>
+        <item>	Berbukit</item>
+        <item>	Bergunung</item>
+    </string-array>
+    <string-array name="kondisi_lahan">
+        <item>	Teras	</item>
+        <item>	Non teras	</item>
+    </string-array>
+    <string-array name="drainase">
+        <item>	Sangat terhambat	</item>
+        <item>	Terhambat	</item>
+        <item>	Sedang	</item>
+        <item>	Baik	</item>
+        <item>	Cepat	</item>
+    </string-array>
+    <string-array name="reaksi_tanah">
+        <item>	Sangat masam</item>
+        <item>	Masam</item>
+        <item>	Agak masam</item>
+        <item>	Netral</item>
+        <item>	Alkalis</item>
+        <item>	Sangat alkalis</item>
+    </string-array>
+    <string-array name="tanaman_utama">
+        <item>	Padi	</item>
+        <item>	Jagung	</item>
+        <item>	Kedelai	</item>
+        <item>	Kacang tanah	</item>
+        <item>	Hortikultura sayur	</item>
+        <item>	Hortikultura buah	</item>
+        <item>	Tebu	</item>
+        <item>	Kopi	</item>
+        <item>	Kakao	</item>
+        <item>	Tembakau	</item>
+        <item>	Sengon	</item>
+        <item>	Pinus	</item>
+        <item>	Jati	</item>
+        <item>	Mahoni	</item>
+    </string-array>
+    <string-array name="tekstur">
+        <item>	Halus	</item>
+        <item>	Sedang	</item>
+        <item>	Kasar	</item>
+    </string-array>
+    <string-array name="kedalaman_olah">
+        <item>	Sangat dangkal</item>
+        <item>	Dangkal</item>
+        <item>	Sedang</item>
+        <item>	Dalam</item>
+        <item>	Sangat dalam</item>
+    </string-array>
+    <string-array name="pola_tanam">
+        <item>	Padi-Padi-Padi	</item>
+        <item>	Padi-Padi-Padi	</item>
+        <item>	Padi-Padi-Padi	</item>
+    </string-array>
+    <string-array name="varietas">
+        <item>	Inpari	</item>
+        <item>	Ciherang	</item>
+        <item>	IR 64	</item>
+        <item>	Mekongga	</item>
+        <item>	Membramo	</item>
+        <item>	Situbagendit	</item>
+        <item>	Logawa	</item>
+        <item>	Hibrida	</item>
+    </string-array>
+    <string-array name="provitas">
+        <item>	Sangat rendah</item>
+        <item>	Rendah</item>
+        <item>	Sedang</item>
+        <item>	Tinggi</item>
+        <item>	Sangat tinggi</item>
+    </string-array>
+    <string-array name="penggunaan_pupuk">
+        <item>	Organik	</item>
+        <item>	Urea	</item>
+        <item>	KCl	</item>
+        <item>	Phonska	</item>
+        <item>	SP36	</item>
+        <item>	ZA	</item>
+    </string-array>
+
+</resources>

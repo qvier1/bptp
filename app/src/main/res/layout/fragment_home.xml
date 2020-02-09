@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <GridLayout
+                android:id="@+id/mainGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/grid_item"
+                android:columnCount="3"
+                android:columnOrderPreserved="false"
+                android:elevation="2dp"
+                android:padding="15dp"
+                android:rowCount="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/jagung"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|center"
+                        android:text="Jagung"
+                        android:textAlignment="center"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 2 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/padi"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/padi"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|center"
+                        android:text="Padi"
+                        android:textAlignment="center"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 3 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/padi3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|center"
+                        android:text="Jagung"
+                        android:textAlignment="center"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 1 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/padi11"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|center"
+                        android:text="Jagung"
+                        android:textAlignment="center"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 2 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/padi22"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|center"
+                        android:text="Jagung"
+                        android:textAlignment="center"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 3 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/padi44"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    android:layout_gravity="right"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|center"
+                        android:text="Lainnya"
+                        android:textAlignment="center"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alignmentMode="alignMargins"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Column 1 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/info1"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 2 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/info2"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 3 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/info3"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 4 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/info4"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Column 5 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/info5"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp">
+
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</ScrollView>

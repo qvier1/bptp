@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPutih"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/infoprofil"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_profile"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/style_profile"
+            android:elevation="2dp">
+        </ImageView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Anggi Pradana Saputra"
+                android:textColor="@color/colorPutih"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="anggilds@gmail.com"
+                android:textColor="@color/colorPutih"
+                android:textSize="14dp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="15dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/input_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="inputdataya"
+                tools:layout_editor_absoluteX="107dp"
+                tools:layout_editor_absoluteY="16dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/jagung"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:text="Input"
+                    android:textSize="16dp"></TextView>
+
+                <ImageView
+                    android:id="@+id/img_input"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:src="@drawable/ic_keyboard_arrow_right_24dp">
+
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:alignmentMode="alignMargins"
+                android:background="@drawable/grid_item"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:onClick="selectAboutUs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="61dp">
+
+                <!-- Row 1 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tentangkami"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:elevation="0dp"
+                    android:onClick="selectAboutUs"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/tentang_kami"
+                        android:tint="@color/colorHijau"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="50dp"
+                        android:text="Tentang Kami"
+                        android:textSize="16dp"></TextView>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_keyboard_arrow_right_24dp">
+
+                    </ImageView>
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginLeft="65dp"
+                    android:src="@color/colorAbuAbu2"></ImageView>
+                <!-- Row 2 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:elevation="0dp"
+                    android:onClick="selectCara"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="50dp"
+                        android:text="Cara Penggunaan"
+                        android:textSize="16dp"></TextView>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_keyboard_arrow_right_24dp">
+
+                    </ImageView>
+                </androidx.cardview.widget.CardView>
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginLeft="65dp"
+                    android:src="@color/colorAbuAbu2"></ImageView>
+                <!-- Row 2 -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/hubungi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:elevation="0dp"
+                    android:onClick="login"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/jagung"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="50dp"
+                        android:text="Hubungi"
+                        android:textSize="16dp"></TextView>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_keyboard_arrow_right_24dp">
+
+                    </ImageView>
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/input_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="inputdataya"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="269dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/jagung"></ImageView>
+
+                <TextView
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:text="Input"
+                    android:textSize="16dp"></TextView>
+
+                <ImageView
+                    android:id="@+id/img_input"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:src="@drawable/ic_keyboard_arrow_right_24dp">
+
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
