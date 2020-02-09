@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText username,password;
     private Button login;
     private TextView link_register;
-    private static String URL_LOGIN = "localhost/db/login.php";
+    private static String URL_LOGIN = "http://192.168.11.111/bptp/login.php";
 
 
     @Override
@@ -61,10 +61,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        link_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+
     }
 
     private void Login(final String username, final String password){
-        login.setVisibility(View.GONE);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
                 new Response.Listener<String>() {
@@ -81,19 +87,20 @@ public class LoginActivity extends AppCompatActivity {
                                     String name = object.getString("name").trim();
                                     String email = object.getString("email").trim();
 
-//                                    Toast.makeText(LoginActivity.this, "Logged in! \n"
-//                                            , Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(LoginActivity.this, ProfileFragment.class);
+                                    Toast.makeText(LoginActivity.this, "Logged in! \n"
+                                            , Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginActivity.this, ProfileActivityLogged.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("email", email);
                                     startActivity(intent);
-
-
                                 }
+
+                            }else if(success.equals("0")){
+                                Toast.makeText(LoginActivity.this, "Wrong username or password! \n"
+                                        , Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e){
                             e.printStackTrace();
-                            login.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this, "Something's wrong\nDetails : "+
                                     e.toString(), Toast.LENGTH_SHORT).show();
                         }
@@ -102,8 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        login.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this, "Something's wrong\nDetails : "+ error.toString(), Toast.LENGTH_SHORT);
+                        Toast.makeText(LoginActivity.this, "Something's wroong\nDetails : "+ error.toString(), Toast.LENGTH_SHORT);
                     }
                 })
         {
@@ -120,10 +126,5 @@ public class LoginActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void selectLogin(View view) {
 
-        if(view == findViewById(R.id.login)){
-            setContentView(R.layout.activity_login);
-        }
-    }
 }

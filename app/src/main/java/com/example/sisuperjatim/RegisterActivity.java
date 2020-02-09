@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText username, name, email, password;
     private Button register;
-    private static String URL_REGIST = "localhost/db/register.php";
+    private static String URL_REGIST = "http://192.168.11.111/bptp/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,8 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("password", password);
                 params.put("name", name);
                 params.put("email", email);
-
-                return super.getParams();
+                return params;
             }
         };
 

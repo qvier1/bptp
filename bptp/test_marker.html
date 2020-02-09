@@ -1,0 +1,46 @@
+<html>
+<head>
+  
+  <title>Google Maps Multiple Markers</title>
+  <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+</head>
+<body>
+  <div id="map" style="height: 400px; width: 500px;">
+</div>
+<script type="text/javascript">
+    var locations = [
+      ['Tempat ngopi tolol', -7.9811784,112.628388,18],
+      ['Tempat ngopi autis', -7.9837217,112.6315356,20.25],
+      ['Tempat ngopi lonte', -7.9843442,112.6300239,20.25],
+      ['Tempat ngopi idiot', -7.9860628,112.6263024,19],
+      ['Tempat ngopi penyakitan', -7.9880213,112.6223169,20]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(-7.9811784,112.628388,18),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>
+
+-7.9811784,112.628388,18
