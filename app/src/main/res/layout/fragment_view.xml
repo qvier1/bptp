@@ -30,7 +30,7 @@
             android:text="Kabupaten/Kota"
             android:textSize="20dp"/>
         <Spinner
-            android:id="@+id/spinner_kab"
+            android:id="@+id/kabupaten"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
@@ -43,7 +43,7 @@
             android:text="Kecamatan"
             android:textSize="20dp"/>
         <Spinner
-            android:id="@+id/spinner_kec"
+            android:id="@+id/desa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"

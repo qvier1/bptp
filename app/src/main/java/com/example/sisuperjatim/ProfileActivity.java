@@ -12,6 +12,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private EditText login, input_data;
 
+
+
     ImageView ivBackProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
 
 

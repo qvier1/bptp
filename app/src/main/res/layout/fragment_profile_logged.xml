@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:paddingBottom="15dp">
 
-            <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView>
                 android:id="@+id/input_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -224,38 +224,6 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/input_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="inputdataya"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="269dp">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/jagung"></ImageView>
-
-                <TextView
-                    android:id="@+id/login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="50dp"
-                    android:text="Input"
-                    android:textSize="16dp"></TextView>
-
-                <ImageView
-                    android:id="@+id/img_input"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical|end"
-                    android:src="@drawable/ic_keyboard_arrow_right_24dp">
-
-                </ImageView>
-            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
