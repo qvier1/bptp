@@ -43,14 +43,7 @@ public class ProfileFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
-        cardView = root.findViewById(R.id.input_data);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("TestInput", "onClick: ");
-                startActivity(new Intent(getActivity(), ProfileActivity.class));
-            }
-        });
+
         return root;
     }
 

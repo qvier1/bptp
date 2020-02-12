@@ -48,6 +48,7 @@ private Button logout;
             @Override
             public void onClick(View v) {
                 sessionManager.logout();
+
             }
         });
 
