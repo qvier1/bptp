@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,15 +37,16 @@ public class ProfileActivity extends AppCompatActivity {
             penggunaan_lahan, relief, kondisi_lahan,
             drainase, reaksi_tanah, tanaman_utama, tekstur, kedalaman_olah, pola_tanaman, varietas,
             provitas, penggunaan_pupuk;
+    private LatLng latlng;
     private Button submit;
-    private static String INPUT_URL = "http://192.168.1.129/bptp/input.php";
+    private static String INPUT_URL = "http://192.168.1.8/bptp/input.php";
     ImageView ivBackProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        ivBackProfile = findViewById(R.id.ivBackProfile);
+
         ivBackProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,12 +88,14 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void input(){
+
+
         submit.setVisibility(View.GONE);
         TextView tDesa = (TextView)this.desa.getSelectedView();
         TextView tKab_kota = (TextView)this.kab_kota.getSelectedView();
         TextView  tJenis_lahan = (TextView)this.jenis_lahan.getSelectedView();
         TextView tBahan_induk = (TextView)this.bahan_induk.getSelectedView();
-//        MapView tKoordinat = (MapView)koordinat.getM
+
         TextView tPenggunaan_lahan = (TextView)this.penggunaan_lahan.getSelectedView();
         TextView tRelief = (TextView)this.relief.getSelectedView();
         TextView tKondisi_lahan =  (TextView)this.kondisi_lahan.getSelectedView();

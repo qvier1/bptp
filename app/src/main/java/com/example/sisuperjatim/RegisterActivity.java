@@ -2,6 +2,7 @@ package com.example.sisuperjatim;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText username, name, email, password;
     private Button register;
-    private static String URL_REGIST = "http://192.168.1.129/bptp/register.php";
+    private static String URL_REGIST = "http://192.168.1.7/bptp/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         register = findViewById(R.id.link_register);
 
 
-        register.setOnClickListener(new View.OnClickListener()
-                                    {
-                                        @Override
-                                        public void onClick(View v){
-                                            register();
-                                        }
-                                    }
-        );
+        register.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){ register();}});
     }
 
     private void register(){
@@ -68,6 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
                             if (success.equals("1")){
                                 Toast.makeText(RegisterActivity.this,"Registered!",
                                         Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(i);
                             }
                         }catch (JSONException e){
                             e.printStackTrace();

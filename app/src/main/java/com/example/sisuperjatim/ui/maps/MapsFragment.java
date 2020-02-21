@@ -1,5 +1,6 @@
 package com.example.sisuperjatim.ui.maps;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +16,17 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.data.geojson.GeoJsonLayer;
+import com.google.maps.android.data.geojson.GeoJsonPolygonStyle;
+
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+
+import org.json.JSONException;
+
+import java.io.IOException;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
@@ -26,6 +34,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     MapView mMapView;
     View mView;
     SearchView mSearchView;
+
+
 
     private MapsViewModel dashboardViewModel;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,11 +61,25 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
         MapsInitializer.initialize(getContext());
         mGoogleMap = googleMap;
-        mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//        mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        try{
+            GeoJsonLayer layer = new GeoJsonLayer(mGoogleMap, R.raw.administrasi, getContext());
+            GeoJsonPolygonStyle polygonStyle = layer.getDefaultPolygonStyle();
+            polygonStyle.setStrokeColor(Color.CYAN);
+            polygonStyle.setStrokeWidth(2);
+            layer.addLayerToMap();
+        }
+        catch (IOException e){
 
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(-7.9637127,112.6131008)).title("Warning").snippet("Percobaan"));
-        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
-        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+        }
+        catch(JSONException e){
+
+        }
+//        googleMap.addMarker(new MarkerOptions().position(new LatLng(-7.9637127,112.6131008)).title("Warning").snippet("Percobaan"));
+//        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
+//        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+
+
     }
 }

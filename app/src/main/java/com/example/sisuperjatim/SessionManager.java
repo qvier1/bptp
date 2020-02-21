@@ -46,13 +46,13 @@ public class SessionManager {
         return sharedPreferences.getBoolean(LOGIN,false);
     }
 
-    public void checkLogin(){
-        if (!this.is_Loggin()){
-            Intent i = new Intent(context, LoginActivity.class);
-            context.startActivity(i);
-            ((ProfileActivityLogged)context).finish();
-        }
-    }
+//    public void checkLogin(){
+////        if (!is_Loggin()){
+////            Intent i = new Intent(context, LoginActivity.class);
+////            context.startActivity(i);
+////            ((MainActivity)context).finish();
+////        }
+//    }
 
     public HashMap<String, String> getUserData(){
         HashMap<String, String > user = new HashMap<>();

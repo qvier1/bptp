@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,20 +33,32 @@ public class LoginActivity extends AppCompatActivity {
     private EditText username,password;
     private Button login;
     private TextView link_register;
-    private static String URL_LOGIN = "http://192.168.10.129/bptp/login.php";
+    private static String URL_LOGIN = "http://192.168.1.8/bptp/login.php";
     SessionManager sessionManager;
+    ImageView imageViewBaackLgin;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        sessionManager = new SessionManager(this);
+
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         link_register = findViewById(R.id.link_register);
         login = findViewById(R.id.login);
+        imageViewBaackLgin = findViewById(R.id.ivBackLogin);
 
+
+        imageViewBaackLgin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +106,8 @@ public class LoginActivity extends AppCompatActivity {
                                     Intent intent = new Intent(LoginActivity.this, ProfileFragment.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("email", email);
-                                    startActivity(intent);
+                                    Intent home = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(home);
                                 }
 
                             }else if(success.equals("0")){

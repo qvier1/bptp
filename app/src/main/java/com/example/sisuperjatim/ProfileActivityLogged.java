@@ -11,46 +11,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
 public class ProfileActivityLogged extends AppCompatActivity {
 SessionManager sessionManager;
 private TextView name, email;
-private Button logout;
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_profile_logged);
+        setContentView(R.layout.fragment_profile);
 
-        sessionManager = new SessionManager(this);
-        sessionManager.checkLogin();
 
-        name = findViewById(R.id.name);
-        email = findViewById(R.id.email);
-//        logout = findViewById(R.id.logout);
-//
-        Intent intent = getIntent();
-        String extraName = intent.getStringExtra("name");
-        String extraEmail = intent.getStringExtra("email");
-
-        name.setText(extraName);
-        name.setText(extraEmail);
-
-        HashMap<String, String> user = sessionManager.getUserData();
-        String mName = user.get(sessionManager.NAME);
-        String mEmail = user.get(sessionManager.EMAIL);
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sessionManager.logout();
-
-            }
-        });
 
 
     }

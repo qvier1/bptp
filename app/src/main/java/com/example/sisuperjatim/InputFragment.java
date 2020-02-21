@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.sisuperjatim.ui.profile.ProfileFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -21,15 +23,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link InputFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link InputFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class InputFragment extends Fragment implements OnMapReadyCallback {
 
 //    protected void onCreate (Bundle savedInstanceState){
@@ -45,6 +38,7 @@ public class InputFragment extends Fragment implements OnMapReadyCallback {
     GoogleMap mGoogleMap;
     MapView mMapView;
     View mView;
+    LatLng latlngi;
     private EditText nama,kab_kota, kecamatan, desa, koordinat, jenis_lahan, bahan_induk,
             penggunaan_lahan, relief, kondisi_lahan,
             drainase, reaksi_tanah, tanaman_utama, tekstur, kedalaman_olah, pola_tanaman, varietas,
@@ -82,7 +76,26 @@ public class InputFragment extends Fragment implements OnMapReadyCallback {
         googleMap.addMarker(new MarkerOptions().position(new LatLng(-7.9637127,112.6131008)).title("Warning").snippet("Percobaan"));
         CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+
+
+        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+
+                Toast.makeText(getContext(),
+                        "Lat : " + latLng.latitude + " , "
+                                + "Long : " + latLng.longitude,
+                        Toast.LENGTH_LONG).show();
+
+
+            }
+
+        });
+
+
+
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
