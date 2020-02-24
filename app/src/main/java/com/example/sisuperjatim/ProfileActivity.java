@@ -39,7 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
             provitas, penggunaan_pupuk;
     private LatLng latlng;
     private Button submit;
-    private static String INPUT_URL = "http://192.168.1.8/bptp/input.php";
+    private static String INPUT_URL = "http://192.168.1.5/bptp/input.php";
     ImageView ivBackProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
