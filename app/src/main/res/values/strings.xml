@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Si Super Jatim</string>
+    <string name="title_home">Home</string>
+    <string name="title_maps">Maps</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_input">Input</string>
+    <string name="api_map_key" translatable="true">
+        AIzaSyB_jBWts40WNhujLRMt8fU4pL7s7LtjS5g
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tes">Tes</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_session_manager">SessionManager</string>
+
+
+</resources>
