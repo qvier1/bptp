@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText username,password;
     private Button login;
     private TextView link_register;
-    private static String URL_LOGIN = "http://bptpjatim.com/db/login.php";
+    private static String URL_LOGIN = "http://bptpjatim.com/login.php";
     SessionManager sessionManager;
     ImageView imageViewBaackLgin;
 

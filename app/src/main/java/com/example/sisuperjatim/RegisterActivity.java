@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText username, name, email, password;
     private Button register;
-    private static String URL_REGIST = "http://bptpjatim.com/db/register.php";
+    private static String URL_REGIST = "http://bptpjatim.com/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

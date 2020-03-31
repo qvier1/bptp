@@ -72,7 +72,7 @@ public class InputFragment extends Fragment implements OnMapReadyCallback {
             drainase, reaksi_tanah, tanaman_utama, tekstur, kedalaman_olah, pola_tanaman,
             provitas, penggunaan_pupuk;
     private Button submit;
-    private static String INPUT_URL = "http://bptpjatim.com/db/input.php";
+    private static String INPUT_URL = "http://bptpjatim.com/input.php";
 
 
     private OnFragmentInteractionListener mListener;

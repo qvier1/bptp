@@ -44,7 +44,7 @@ public class ProfileActivity extends FragmentActivity {
             provitas, penggunaan_pupuk;
     private LatLng latlng;
     private Button submit;
-    private static String INPUT_URL = "http://bptpjatim.com/db/input.php";
+    private static String INPUT_URL = "http://bptpjatim.com/input.php";
     ImageView ivBackProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
