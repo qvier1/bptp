@@ -63,7 +63,7 @@ public class SessionManager {
         if (!is_Loggin()){
             Intent i = new Intent(context, LoginActivity.class);
             context.startActivity(i);
-            ((MainActivity)context).finish();
+
         }
     }
 
