@@ -21,4 +21,23 @@
 <!--        android:layout_margin="10dp"-->
 <!--        android:elevation="5dp"-->
 <!--        android:background="@drawable/grid_input"/>-->
+
+
+    <Button
+        android:id="@+id/inputButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/round_button"
+        android:drawableLeft="@drawable/ic_icons8_plus"
+        android:paddingLeft="4dp"
+        />
+
 </RelativeLayout>
+
+
+
+
+

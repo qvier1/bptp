@@ -494,37 +494,37 @@
                         android:layout_marginLeft="65dp"
                         android:src="@color/colorAbuAbu2"></ImageView>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/inputData"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:elevation="0dp"
-                        android:onClick="selectLogout"
-                        app:cardElevation="0dp">
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/inputData"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_margin="15dp"-->
+<!--                        android:elevation="0dp"-->
+<!--                        android:onClick="selectLogout"-->
+<!--                        app:cardElevation="0dp">-->
 
-                        <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/jagung"></ImageView>
+<!--                        <ImageView-->
+<!--                            android:layout_width="35dp"-->
+<!--                            android:layout_height="35dp"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:src="@drawable/jagung"></ImageView>-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="50dp"
-                            android:text="Input Data"
-                            android:textSize="16dp"></TextView>
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:layout_marginLeft="50dp"-->
+<!--                            android:text="Input Data"-->
+<!--                            android:textSize="16dp"></TextView>-->
 
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical|end"
-                            android:src="@drawable/ic_keyboard_arrow_right_24dp">
+<!--                        <ImageView-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_gravity="center_vertical|end"-->
+<!--                            android:src="@drawable/ic_keyboard_arrow_right_24dp">-->
 
-                        </ImageView>
-                    </androidx.cardview.widget.CardView>
+<!--                        </ImageView>-->
+<!--                    </androidx.cardview.widget.CardView>-->
 
                     <ImageView
                         android:layout_width="match_parent"

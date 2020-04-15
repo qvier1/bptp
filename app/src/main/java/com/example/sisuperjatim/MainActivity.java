@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
 
     SessionManager sessionManager;
     GoogleMap gMap;
-
+    private Button hamburgerMenu;
 
 
 
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
         BottomNavigationView btnNav = findViewById(R.id.nav_view);
         btnNav.setOnNavigationItemSelectedListener(navListener);
         sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
         if (ContextCompat.checkSelfPermission(MainActivity.this,
                 ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
 
@@ -124,11 +125,11 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
                         case R.id.navigation_maps:
                             selectedFragment = new MapsFragment();
                             break;
-                        case R.id.navigation_profile:
-                            sessionManager.checkLogin();
-                            selectedFragment = new ProfileFragment();
-
-                            break;
+//                        case R.id.navigation_profile:
+//                            sessionManager.checkLogin();
+//                            selectedFragment = new ProfileFragment();
+//
+//                            break;
                 }
                     getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, selectedFragment).commit();
                 return true;

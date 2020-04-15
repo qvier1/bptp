@@ -136,7 +136,7 @@ public class ProfileFragment extends Fragment {
         name = view.findViewById(R.id.name);
         email = view.findViewById(R.id.email);
         logout = view.findViewById(R.id.logout);
-        cvInputData = view.findViewById(R.id.inputData);
+//        cvInputData = view.findViewById(R.id.inputData);
         cvTentangKami = view.findViewById(R.id.tentangkami);
         cvCaraPenggunaan = view.findViewById(R.id.cara);
         cvHubungi = view.findViewById(R.id.hubungi);
@@ -181,18 +181,18 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        cvInputData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentInputData = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intentInputData);
-//                Fragment intentInputData = new InputFragment();
-//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//                transaction.replace(R.id.nav_host_fragment, intentInputData);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
-            }
-        });
+//        cvInputData.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intentInputData = new Intent(getActivity(), ProfileActivity.class);
+//                startActivity(intentInputData);
+////                Fragment intentInputData = new InputFragment();
+////                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+////                transaction.replace(R.id.nav_host_fragment, intentInputData);
+////                transaction.addToBackStack(null);
+////                transaction.commit();
+//            }
+//        });
     }
 }
 

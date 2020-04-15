@@ -25,6 +25,8 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.model.LatLng;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,28 +40,38 @@ public class ProfileActivity extends FragmentActivity {
     MapView mMapView, koordinat;
     View mView;
     private EditText nama;
-    private Spinner kab_kota, kecamatan, desa, jenis_lahan, bahan_induk,
-            penggunaan_lahan, relief, kondisi_lahan,
-            drainase, reaksi_tanah, tanaman_utama, tekstur, kedalaman_olah, pola_tanaman, varietas,
-            provitas, penggunaan_pupuk;
-    private LatLng latlng;
-    private Button submit;
-    private static String INPUT_URL = "http://bptpjatim.com/input.php";
+    Bundle latlng = getIntent().getExtras();
+    public Double latitude = latlng.getDouble("LATITUDE" , 0);
+    public Double longitude = latlng.getDouble("LONGITUDE" , 0);
+
     ImageView ivBackProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        final InputFragment inputFragment = new InputFragment();
         ivBackProfile = findViewById(R.id.ivBackProfile);
         ivBackProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ProfileActivity.this, MainActivity.class);
                 startActivity(i);
+
+
             }
         });
+        Bundle b = new Bundle();
+        b.putString("LATITUDE", latitude.toString());
+        b.putString("LONGITUDE", longitude.toString());
 
+        inputFragment.setArguments(b);
+        fragmentTransaction.add(R.id.nav_host_fragment, inputFragment).commit();
+
+
+
+// bunch of unused codes
 
 
 
