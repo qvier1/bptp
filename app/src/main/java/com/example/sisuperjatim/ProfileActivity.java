@@ -40,9 +40,7 @@ public class ProfileActivity extends FragmentActivity {
     MapView mMapView, koordinat;
     View mView;
     private EditText nama;
-    Bundle latlng = getIntent().getExtras();
-    public Double latitude = latlng.getDouble("LATITUDE" , 0);
-    public Double longitude = latlng.getDouble("LONGITUDE" , 0);
+
 
     ImageView ivBackProfile;
     @Override
@@ -62,12 +60,9 @@ public class ProfileActivity extends FragmentActivity {
 
             }
         });
-        Bundle b = new Bundle();
-        b.putString("LATITUDE", latitude.toString());
-        b.putString("LONGITUDE", longitude.toString());
 
-        inputFragment.setArguments(b);
-        fragmentTransaction.add(R.id.nav_host_fragment, inputFragment).commit();
+
+
 
 
 

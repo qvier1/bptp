@@ -48,7 +48,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class InputFragment extends Fragment {
+public class InputFragment extends Fragment implements OnMapReadyCallback{
 //    protected void onCreate (Bundle savedInstanceState){
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.fragment_input);
@@ -64,12 +64,10 @@ public class InputFragment extends Fragment {
     GoogleMap mGoogleMap;
     MapView mMapView, mapinput;
     View mView;
+    LatLng titik;
     Marker marker;
-    Bundle bundle = getArguments();
-    String latitude = bundle.getString("LATITUDE");
-    String longitude = bundle.getString("LONGITUDE");
-    private EditText name, edVarietas, edCatatan;
-    private  Spinner kab_kota, kecamatan, desa, koordinat, jenis_lahan, bahan_induk,
+    private EditText name, edVarietas, edCatatan,edKab_kota, edKecamatan, edDesa;
+    private  Spinner  koordinat, jenis_lahan, bahan_induk,
             penggunaan_lahan, relief, kondisi_lahan,
             drainase, reaksi_tanah, tanaman_utama, tekstur, kedalaman_olah, pola_tanaman,
             provitas, penggunaan_pupuk;
@@ -77,39 +75,42 @@ public class InputFragment extends Fragment {
     private static String INPUT_URL = "http://bptpjatim.com/input.php";
 
 
+
+
     private OnFragmentInteractionListener mListener;
 
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//
-//        MapsInitializer.initialize(getContext());
-//        mGoogleMap = googleMap;
-//        mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
-//        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
-//        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
-//
-//        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
-//        {
-//            @Override
-//            public void onMapClick(LatLng latLng) {
-//                if (marker != null){
-//                    marker.remove();
-//                }
-//                Location location = new Location("a");
-//                location.setLatitude(latLng.latitude);
-//                location.setLongitude(latLng.longitude);
-//
-//                LatLng newLatlng = new LatLng(location.getLatitude(), location.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions().position(newLatlng).title(newLatlng.toString());
-//                marker = mGoogleMap.addMarker(markerOptions);
-//                titik = newLatlng;
-//                Toast.makeText(getContext(),
-//                        "Lat : " + newLatlng.latitude + " , "
-//                                + "Long : " + newLatlng.longitude,
-//                        Toast.LENGTH_LONG).show();
-//            }
-//        });
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        MapsInitializer.initialize(getContext());
+        mGoogleMap = googleMap;
+        mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mGoogleMap.setMyLocationEnabled(true);
+        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
+        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+
+        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+        {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                if (marker != null){
+                    marker.remove();
+                }
+                Location location = new Location("a");
+                location.setLatitude(latLng.latitude);
+                location.setLongitude(latLng.longitude);
+
+                LatLng newLatlng = new LatLng(location.getLatitude(), location.getLongitude());
+                MarkerOptions markerOptions = new MarkerOptions().position(newLatlng).title(newLatlng.toString());
+                marker = mGoogleMap.addMarker(markerOptions);
+                titik = newLatlng;
+                Toast.makeText(getContext(),
+                        "Lat : " + newLatlng.latitude + " , "
+                                + "Long : " + newLatlng.longitude,
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 //
 //
 //        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -130,7 +131,7 @@ public class InputFragment extends Fragment {
 
 
 
-
+    }
 
 
     public InputFragment() {
@@ -141,15 +142,15 @@ public class InputFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//
-//        mMapView =  mView.findViewById(R.id.mapinput);
-//        if (mMapView != null){
-//            mMapView.onCreate(null);
-//            mMapView.onResume();
-//            mMapView.getMapAsync(this);
-//
-//
-//        }
+
+        mMapView =  mView.findViewById(R.id.mapinput);
+        if (mMapView != null){
+            mMapView.onCreate(null);
+            mMapView.onResume();
+            mMapView.getMapAsync(this);
+
+
+        }
 //        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 //            @Override
 //            public void onMapClick(LatLng latLng) {
@@ -165,9 +166,9 @@ public class InputFragment extends Fragment {
 
 
         name = view.findViewById(R.id.nama);
-        kab_kota = view.findViewById(R.id.kabupaten);
-        desa = view.findViewById(R.id.desa);
-        kecamatan = view.findViewById(R.id.kecamatan);
+        edKab_kota = view.findViewById(R.id.kabupaten);
+        edDesa = view.findViewById(R.id.desa);
+        edKecamatan = view.findViewById(R.id.kecamatan);
 
         jenis_lahan = view.findViewById(R.id.jenis_lahan);
         bahan_induk = view.findViewById(R.id.bahan_induk);
@@ -197,7 +198,10 @@ public class InputFragment extends Fragment {
             public void onClick(View v) {
                 String mName = name.getText().toString().trim();
                 String mVarietas = edVarietas.getText().toString().trim();
-                if (!mName.isEmpty() || marker != null || !mVarietas.isEmpty()){
+                String mKab_kot = edKab_kota.getText().toString().trim();
+                String mKecamatan = edKecamatan.getText().toString().trim();
+                String mDesa = edDesa.getText().toString().trim();
+                if (!mName.isEmpty() || marker != null || !mVarietas.isEmpty() || !mKab_kot.isEmpty() || !mKecamatan.isEmpty() || !mDesa.isEmpty()){
                     input();
                     Toast.makeText(getContext(), "Input Success!", Toast.LENGTH_SHORT);
                 }else{
@@ -206,8 +210,9 @@ public class InputFragment extends Fragment {
                     }
                     name.setError("Username is empty!");
                     edVarietas.setError("Varietas is empty");
-
-
+                    edKab_kota.setError("Kab_kot is empty");
+                    edKecamatan.setError("Kecamatan is empty");
+                    edDesa.setError("Desa is empty");
                 }
             }
         });
@@ -219,11 +224,12 @@ public class InputFragment extends Fragment {
 
     private void input(){
         submit.setVisibility(View.GONE);
-        TextView tDesa = (TextView)this.desa.getSelectedView();
-        TextView tKab_kota = (TextView)this.kab_kota.getSelectedView();
+//        TextView tDesa = (TextView)this.desa.getSelectedView();
+//        TextView tKab_kota = (TextView)this.kab_kota.getSelectedView();
         TextView  tJenis_lahan = (TextView)this.jenis_lahan.getSelectedView();
         TextView tBahan_induk = (TextView)this.bahan_induk.getSelectedView();
-
+        final double tKoordinatLat = titik.latitude;
+        final double tKoordinatLang = titik.longitude;
         TextView tPenggunaan_lahan = (TextView)this.penggunaan_lahan.getSelectedView();
         TextView tRelief = (TextView)this.relief.getSelectedView();
         TextView tKondisi_lahan =  (TextView)this.kondisi_lahan.getSelectedView();
@@ -235,11 +241,11 @@ public class InputFragment extends Fragment {
         TextView tPola_tanam = (TextView)this.pola_tanaman.getSelectedView();
         TextView tProvitas = (TextView)this.provitas.getSelectedView();
         TextView tPenggunaan_pupuk = (TextView)this.penggunaan_pupuk.getSelectedView();
-        TextView tKecamatan = (TextView)this.kecamatan.getSelectedView();
+//        TextView tKecamatan = (TextView)this.kecamatan.getSelectedView();
 
         final String nama = name.getText().toString().trim();
-        final String desa = tDesa.getText().toString().trim();
-        final String kab_kota = tKab_kota.getText().toString().trim();
+        final String desa = edDesa.getText().toString().trim();
+        final String kab_kota = edKab_kota.getText().toString().trim();
         final String jenis_lahan = tJenis_lahan.getText().toString().trim();
         final String bahan_induk = tBahan_induk.getText().toString().trim();
         final String penggunaan_lahan = tPenggunaan_lahan.getText().toString().trim();
@@ -254,9 +260,9 @@ public class InputFragment extends Fragment {
         final String varietas = edVarietas.getText().toString().trim();
         final String provitas = tProvitas.getText().toString().trim();
         final String penggunaan_pupuk = tPenggunaan_pupuk.getText().toString().trim();
-        final String kecamatan = tKecamatan.getText().toString().trim();
-        final String koordinatLang = latitude.trim();
-        final String koordinatLat = longitude.trim();
+        final String kecamatan = edKecamatan.getText().toString().trim();
+        final String koordinatLang = Double.toString(tKoordinatLang).trim();
+        final String koordinatLat = Double.toString(tKoordinatLat).trim();
         final String catatan = edCatatan.getText().toString().trim();
 
 
@@ -282,11 +288,10 @@ public class InputFragment extends Fragment {
 //                                Intent intent = new Intent(getContext(), MapsFragment.class);
 //                                intent.putExtra("lat", koordinatLat);
 //                                intent.putExtra("lang", koordinatLang);
-
+                                sessionManager.createSessionMap(tKoordinatLat, tKoordinatLang);
                                 Toast.makeText(getContext(),"Success!",
                                         Toast.LENGTH_SHORT).show();
                                 Intent home = new Intent(getContext(), MainActivity.class);
-
                                 startActivity(home);
 
 
@@ -374,7 +379,7 @@ public class InputFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }}
+    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -386,8 +391,8 @@ public class InputFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    interface OnFragmentInteractionListener {
+    public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
+}
