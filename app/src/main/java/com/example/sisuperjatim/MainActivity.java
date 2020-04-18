@@ -3,6 +3,7 @@ package com.example.sisuperjatim;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -24,13 +25,23 @@ import com.example.sisuperjatim.ui.home.HomeFragment;
 import com.example.sisuperjatim.ui.maps.MapsFragment;
 import com.example.sisuperjatim.ui.profile.ProfileFragment;
 import com.google.android.gms.common.internal.Objects;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kishan.askpermission.AskPermission;
 import com.kishan.askpermission.ErrorCallback;
 import com.kishan.askpermission.PermissionCallback;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,8 +71,11 @@ import static com.baidu.mapapi.BMapManager.getContext;
 
 
 public class MainActivity extends AppCompatActivity implements PermissionCallback, ErrorCallback {
-    private static final int PERMISSION_REQUEST_CODE = 1;
+    public static final int PERMISSION_REQUEST_CODE = 1;
     public static FragmentManager fragmentManager;
+
+
+
 
     SessionManager sessionManager;
     GoogleMap gMap;
@@ -72,6 +86,10 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
 //        get_data();
 //        BottomNavigationView navView = findViewById(R.id.nav_view);
 //        // Passing each menu ID as a set of Ids because each
@@ -100,7 +118,16 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
         }
 
     }
-//
+
+
+
+
+
+
+
+
+
+
 //    void get_data () {
 //        String URL_SELECT = "http://bptpjatim.com/select.php";
 //        StringRequest stringRequest = new StringRequest(Request.Method.POST,

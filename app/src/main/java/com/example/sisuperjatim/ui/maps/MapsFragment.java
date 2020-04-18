@@ -40,10 +40,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
 import com.google.maps.android.data.geojson.GeoJsonPolygonStyle;
 
@@ -62,6 +65,9 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
+
+import static android.content.Context.LOCATION_SERVICE;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
@@ -74,6 +80,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     Button btnInput;
     LocationManager locationManager ;
 
+
+    Location currentlocation;
+    FusedLocationProviderClient fusedLocationProviderClient;
 
 
     protected GoogleApiClient mGoogleApiClient;
@@ -89,8 +98,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         mView = inflater.inflate(R.layout.fragment_maps, container, false);
         mMapView = (MapView) mView.findViewById(R.id.mapview);
 
-//
-//        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
+
+
+
         mMapView.onCreate(savedInstanceState);
 
         Criteria criteria = new Criteria();
@@ -129,6 +140,47 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         return mView;
     }
 
+
+    private Location fetcLastLocation() {
+
+        Task<Location> task = fusedLocationProviderClient.getLastLocation();
+        task.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if (location != null){
+
+                    currentlocation = location;
+
+                    Toast.makeText(getContext(),currentlocation.getLatitude()
+                            + ""+currentlocation.getLongitude(),Toast.LENGTH_SHORT).show();
+                    SupportMapFragment supportMapFragment = (SupportMapFragment)
+                            getFragmentManager().findFragmentById(R.id.mapview);
+                    supportMapFragment.getMapAsync(MapsFragment.this);
+                }
+            }
+        });
+        return currentlocation;
+    }
+
+
+    private Location getLastKnownLocation() {
+        Location l=null;
+        LocationManager mLocationManager = (LocationManager)getContext().getSystemService(LOCATION_SERVICE);
+        List<String> providers = mLocationManager.getProviders(true);
+        Location bestLocation = null;
+        for (String provider : providers) {
+            if(ContextCompat.checkSelfPermission(getContext(),Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED) {
+                l = mLocationManager.getLastKnownLocation(provider);
+            }
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                bestLocation = l;
+            }
+        }
+        return bestLocation;
+    }
 
 
 
@@ -174,58 +226,24 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
     }
 
-    private void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-    }
+
 
     @Override
     public void onMapReady(final GoogleMap googleMap) {
-
-        MapsInitializer.initialize(getContext());
+         MapsInitializer.initialize(getContext());
 
         mGoogleMap = googleMap;
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
         // For showing a move to my location button
         mGoogleMap.setMyLocationEnabled(true);
+        Location location = getLastKnownLocation();
+        LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
+        MarkerOptions markerOptions = new MarkerOptions().position(latLng)
+                .title("Posisi Anda Sekarang");
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        mGoogleMap.addMarker(markerOptions);
 
-
-        LatLng sydney = new LatLng(-7.9637127,112.6131008);
-//        marker = mGoogleMap.addMarker(new MarkerOptions().position(sydney).title(sydney.toString()));
-//        mGoogleMap.addMarker(new MarkerOptions().position(sydney).title(sydney.toString()));
-//
-        // For zooming automatically to the location of the marker
-
-        Location myLocation =  mGoogleMap.getMyLocation();
-        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, false);
-
-
-
-
-//        if (ContextCompat.checkSelfPermission( getActivity(), Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED )
-//        {
-//            Location location = locationManager.getLastKnownLocation(provider);
-//
-//                mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13));
-//
-//                CameraPosition cameraPosition = new CameraPosition.Builder()
-//                        .target(new LatLng(location.getLatitude(), location.getLongitude()))      // Sets the center of the map to location user
-//                        .zoom(17)                   // Sets the zoom
-//                        .bearing(90)                // Sets the orientation of the camera to east
-//                        .tilt(40)                   // Sets the tilt of the camera to 30 degrees
-//                        .build();                   // Creates a CameraPosition from the builder
-//                mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-//
-//        }
-
-//
-//        mGoogleMap.getMyLocation().getLongitude();
-//        mGoogleMap.getMyLocation().getLatitude();
 
         btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -243,63 +261,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
             }
         });
-        //input button
-
-//
-
-
-
-
-
-
-//        HashMap<String, String> user = sessionManager.getUserMapData();
-//        String extraLatitude = user.get(sessionManager.LATITUDE);
-//        String extraLongitude = user.get(sessionManager.LONGITUDE);
-//        Double realLatitude = Double.parseDouble(extraLatitude);
-//        Double realLongitude = Double.parseDouble(extraLongitude);
-//                // For dropping a marker at a point on the Map
-//                Location location = new Location("a");
-//        location.setLatitude(realLatitude);
-//        location.setLongitude(realLongitude);
-
-
-//        mGoogleMap = googleMap;
-//        googleMap  = EventBus.getDefault().getStickyEvent(GoogleMap.class);
-//        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
-//        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
-//
-////        mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
-//        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-////        try{
-//            GeoJsonLayer layer = new GeoJsonLayer(mGoogleMap, R.raw.administrasi, getContext());
-//            GeoJsonPolygonStyle polygonStyle = layer.getDefaultPolygonStyle();
-//            polygonStyle.setStrokeColor(Color.CYAN);
-//            polygonStyle.setStrokeWidth(2);
-//
-//            Point point = new Point(38.889462878011365, -77.03525304794312);
-//            layer.addFeature();
-//            layer.addLayerToMap();
-//
-//
-//        }
-//        catch (IOException e){
-//            e.printStackTrace();
-//        }
-//        catch(JSONException e){
-//            e.printStackTrace();
-//        }
-
-//        String string; // A string containing GeoJSON
-//
-//        try {
-//            GeoJSONObject geoJSONObject = GeoJSON.parse(string);
-//        }
-//        catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        googleMap.addMarker(new MarkerOptions().position(new LatLng(-7.9637127,112.6131008)).title("Warning").snippet("Percobaan"));
-//        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
-//        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
 
 
     }

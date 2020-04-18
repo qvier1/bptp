@@ -1,8 +1,11 @@
 package com.example.sisuperjatim;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,6 +40,7 @@ import com.google.maps.android.data.Point;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -45,8 +49,11 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import static android.content.Context.LOCATION_SERVICE;
 
 public class InputFragment extends Fragment implements OnMapReadyCallback{
 //    protected void onCreate (Bundle savedInstanceState){
@@ -66,6 +73,7 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
     View mView;
     LatLng titik;
     Marker marker;
+    Location aLocation = new Location("a");
     private EditText name, edVarietas, edCatatan,edKab_kota, edKecamatan, edDesa;
     private  Spinner  koordinat, jenis_lahan, bahan_induk,
             penggunaan_lahan, relief, kondisi_lahan,
@@ -87,8 +95,14 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mGoogleMap.setMyLocationEnabled(true);
-        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(-7.9637127,112.6131008)).zoom(14).bearing(0).tilt(0).build();
-        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+        aLocation = getLastKnownLocation();
+        LatLng latLng = new LatLng(aLocation.getLatitude(),aLocation.getLongitude());
+        MarkerOptions markerOptions = new MarkerOptions().position(latLng)
+                .title("Posisi Anda Sekarang");
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        marker = mGoogleMap.addMarker(markerOptions);
+
 
         mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
         {
@@ -97,17 +111,14 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
                 if (marker != null){
                     marker.remove();
                 }
-                Location location = new Location("a");
-                location.setLatitude(latLng.latitude);
-                location.setLongitude(latLng.longitude);
-
-                LatLng newLatlng = new LatLng(location.getLatitude(), location.getLongitude());
+                aLocation.setLatitude(latLng.latitude);
+                aLocation.setLongitude(latLng.longitude);
+                LatLng newLatlng = new LatLng(aLocation.getLatitude(), aLocation.getLongitude());
                 MarkerOptions markerOptions = new MarkerOptions().position(newLatlng).title(newLatlng.toString());
                 marker = mGoogleMap.addMarker(markerOptions);
-                titik = newLatlng;
                 Toast.makeText(getContext(),
-                        "Lat : " + newLatlng.latitude + " , "
-                                + "Long : " + newLatlng.longitude,
+                        "Lat : " + aLocation.getLatitude() + " , "
+                                + "Long : " + aLocation.getLongitude(),
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -220,7 +231,24 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
 
     }
 
-
+    private Location getLastKnownLocation() {
+        Location l=null;
+        LocationManager mLocationManager = (LocationManager)getContext().getSystemService(LOCATION_SERVICE);
+        List<String> providers = mLocationManager.getProviders(true);
+        Location bestLocation = null;
+        for (String provider : providers) {
+            if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED) {
+                l = mLocationManager.getLastKnownLocation(provider);
+            }
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                bestLocation = l;
+            }
+        }
+        return bestLocation;
+    }
 
     private void input(){
         submit.setVisibility(View.GONE);
