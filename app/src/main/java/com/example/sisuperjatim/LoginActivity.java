@@ -66,11 +66,11 @@ public class LoginActivity extends AppCompatActivity {
                 String mUsername = username.getText().toString().trim();
                 String mPassword = password.getText().toString().trim();
 
-                if (!mUsername.isEmpty() || !mPassword.isEmpty()){
+                if (!mUsername.isEmpty() && !mPassword.isEmpty()){
                     Login(mUsername, mPassword);
                 }else{
-                    username.setError("Username is empty!");
-                    password.setError("Password is empty!");
+                    username.setError("");
+                    password.setError("");
                 }
             }
         });

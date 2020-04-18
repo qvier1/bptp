@@ -212,18 +212,23 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
                 String mKab_kot = edKab_kota.getText().toString().trim();
                 String mKecamatan = edKecamatan.getText().toString().trim();
                 String mDesa = edDesa.getText().toString().trim();
-                if (!mName.isEmpty() || marker != null || !mVarietas.isEmpty() || !mKab_kot.isEmpty() || !mKecamatan.isEmpty() || !mDesa.isEmpty()){
+                if (!mName.isEmpty() &&  !mVarietas.isEmpty() && !mKab_kot.isEmpty() && !mKecamatan.isEmpty() && !mDesa.isEmpty()){
                     input();
                     Toast.makeText(getContext(), "Input Success!", Toast.LENGTH_SHORT);
                 }else{
                     if (marker != null){
                         ///todo
+                    }else if (mName.isEmpty()){
+                        name.setError("");
+                    }else if (mVarietas.isEmpty()){
+                        edVarietas.setError("");
+                    }else if (mKab_kot.isEmpty()){
+                        edKab_kota.setError("");
+                    }else if (mKecamatan.isEmpty()){
+                        edKecamatan.setError("");
+                    }else if (mDesa.isEmpty()){
+                        edDesa.setError("");
                     }
-                    name.setError("Username is empty!");
-                    edVarietas.setError("Varietas is empty");
-                    edKab_kota.setError("Kab_kot is empty");
-                    edKecamatan.setError("Kecamatan is empty");
-                    edDesa.setError("Desa is empty");
                 }
             }
         });
@@ -251,13 +256,13 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
     }
 
     private void input(){
-        submit.setVisibility(View.GONE);
+
 //        TextView tDesa = (TextView)this.desa.getSelectedView();
 //        TextView tKab_kota = (TextView)this.kab_kota.getSelectedView();
         TextView  tJenis_lahan = (TextView)this.jenis_lahan.getSelectedView();
         TextView tBahan_induk = (TextView)this.bahan_induk.getSelectedView();
-        final double tKoordinatLat = titik.latitude;
-        final double tKoordinatLang = titik.longitude;
+        final double tKoordinatLat = aLocation.getLatitude();
+        final double tKoordinatLang = aLocation.getLongitude();
         TextView tPenggunaan_lahan = (TextView)this.penggunaan_lahan.getSelectedView();
         TextView tRelief = (TextView)this.relief.getSelectedView();
         TextView tKondisi_lahan =  (TextView)this.kondisi_lahan.getSelectedView();

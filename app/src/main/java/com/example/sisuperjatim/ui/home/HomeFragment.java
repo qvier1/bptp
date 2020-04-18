@@ -1,5 +1,6 @@
 package com.example.sisuperjatim.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,16 +9,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,6 +33,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.sisuperjatim.MainActivity;
 import com.example.sisuperjatim.ProfileActivity;
 import com.example.sisuperjatim.R;
+import com.example.sisuperjatim.SessionManager;
 import com.example.sisuperjatim.ui.profile.ProfileFragment;
 
 import org.json.JSONArray;
@@ -43,64 +48,96 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     Button hamburgerMenu;
-    private TextView nama, kota, provinsi;
-    private static String URL_SELECT = "http://bptpjatim.com/select.php";
+    ListView listView;
+    String nNama;
+    SessionManager sessionManager;
+    Boolean isExecuted = false;
+    RecyclerView.ViewHolder viewHolder;
+
+    public static HomeFragment newInstance(){
+
+        return new HomeFragment();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        get_data();
+        sessionManager = new SessionManager(getContext());
+
+
         return root;
 
 
     }
 
+
+
     void get_data() {
         String URL_SELECT = "http://bptpjatim.com/select.php";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                URL_SELECT,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray jsonArray = jsonObject.getJSONArray("result");
-                            ArrayList<getData> list_data;
-                            list_data = new ArrayList<>();
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject hasil = jsonArray.getJSONObject(i);
-                                String nama = hasil.getString("nama");
-                                String kota = hasil.getString("kota");
-                                String provinsi = hasil.getString("provinsi");
+        sessionManager = new SessionManager(getContext());
+        HashMap<String, String> user = sessionManager.getUserData();
+        nNama = user.get(sessionManager.NAME);
+        listView = getView().findViewById(R.id.list_item);
+        do{
+            StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                    URL_SELECT,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
 
-                                list_data.add(new getData(
-                                        nama,
-                                        kota,
-                                        provinsi
-                                ));
+                                JSONObject jsonObject = new JSONObject(response);
+                                JSONArray jsonArray = jsonObject.getJSONArray("result");
+                                ArrayList<getData> list_data;
+                                list_data = new ArrayList<>();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject hasil = jsonArray.getJSONObject(i);
+                                    String nama = hasil.getString("nama");
+                                    String kota = hasil.getString("kota");
+                                    String provinsi = hasil.getString("provinsi");
+
+                                    list_data.add(new getData(
+                                            nama,
+                                            kota,
+                                            provinsi
+                                    ));
+                                }
+                                CustomAdapter customAdapter = new CustomAdapter(getContext(), list_data);
+                                listView.clearTextFilter();
+                                listView.setAdapter(customAdapter);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                            ListView listView = getView().findViewById(R.id.list_item);
-                            CustomAdapter customAdapter = new CustomAdapter(getContext(), list_data);
-                            listView.setAdapter(customAdapter);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+//                       Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
                         }
-//                        Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+            )
+            {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("nama",nNama);
+                    params.put("",nNama);
+
+
+                    return params;
                 }
-        );
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
+            }
+                    ;
+            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            requestQueue.add(stringRequest);
+            isExecuted = true;
+
+        }while(!isExecuted);
 
     }
 
@@ -110,6 +147,7 @@ public class HomeFragment extends Fragment {
 //        nama = view.findViewById(R.id.nama);
 //        kota = view.findViewById(R.id.kota);
 //        provinsi = view.findViewById(R.id.provinsi);
+
         hamburgerMenu = view.findViewById(R.id.hamburgerMenuProfile);
         hamburgerMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,11 +157,18 @@ public class HomeFragment extends Fragment {
 //                transaction.replace(R.id.nav_host_fragment, mFrag);
 //                transaction.addToBackStack(null);
 //                transaction.commit();
+
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, new ProfileFragment(), null).addToBackStack(null).commit();
 
 
             }
         });
+        if (sessionManager.is_Loggin()){
+//
+            get_data();
+
+        }
+
     }
 }
 
@@ -185,7 +230,7 @@ class CustomAdapter extends BaseAdapter {
 
         nama.setText("Nama pengguna  : "+ model.get(position).getNama());
         kota.setText(model.get(position).getKota());
-        provinsi.setText("Provinsi  :"+model.get(position).getProvinsi());
+        provinsi.setText("Provinsi  : "+model.get(position).getProvinsi());
         return view;
     }
 }

@@ -88,7 +88,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     protected GoogleApiClient mGoogleApiClient;
 
 
-
+    public static MapsFragment newInstance(){
+        return new MapsFragment();
+    }
 
 
 

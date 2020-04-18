@@ -271,12 +271,37 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorHijau">
+            <ImageView
+                android:id="@+id/ivBackkembali"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+                android:tint="@color/colorPutih"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:text="Profile"
+                android:textColor="@color/colorPutih"
+                android:textSize="20dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/infoprofil"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:background="@drawable/bg_profile"
             android:orientation="horizontal"
             android:padding="15dp">
+
+
 
             <ImageView
                 android:layout_width="100dp"

@@ -47,6 +47,12 @@ public class SessionManager {
         editor.apply();
     }
 
+    public void createSessionSelect (String name){
+        editor.putBoolean(LOGIN, true);
+        editor.putString(NAME, name);
+        editor.apply();
+    }
+
     public void createSessionMap(Double latitude, Double longitude){
         String tLatitude = latitude.toString();
         String tLongitude = longitude.toString();
@@ -71,6 +77,13 @@ public class SessionManager {
         HashMap<String, String > user = new HashMap<>();
         user.put(NAME, sharedPreferences.getString(NAME, null));
         user.put(EMAIL, sharedPreferences.getString(EMAIL, null));
+
+        return user;
+    }
+
+    public HashMap<String, String> getUserDataSelect(){
+        HashMap<String, String > user = new HashMap<>();
+        user.put(NAME, sharedPreferences.getString(NAME, null));
 
         return user;
     }

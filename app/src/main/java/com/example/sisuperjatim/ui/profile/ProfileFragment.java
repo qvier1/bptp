@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 //import android.widget.TextView;
@@ -21,6 +22,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.sisuperjatim.CaraPenggunaanActivity;
 import com.example.sisuperjatim.HubungiActivity;
 import com.example.sisuperjatim.InputFragment;
+import com.example.sisuperjatim.MainActivity;
 import com.example.sisuperjatim.ProfileActivity;
 import com.example.sisuperjatim.R;
 import com.example.sisuperjatim.SessionManager;
@@ -35,6 +37,8 @@ public class ProfileFragment extends Fragment {
     private TextView name, email;
     private CardView logout;
     SessionManager sessionManager;
+    ImageView imageView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -147,6 +151,18 @@ public class ProfileFragment extends Fragment {
 
         name.setText(extraName);
         email.setText(extraEmail);
+
+        imageView = view.findViewById(R.id.ivBackkembali);
+
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
         logout.setOnClickListener(new View.OnClickListener() {

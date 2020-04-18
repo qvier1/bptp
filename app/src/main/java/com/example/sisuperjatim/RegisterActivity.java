@@ -47,13 +47,17 @@ public class RegisterActivity extends AppCompatActivity {
             String mEmail = username.getText().toString().trim();
             String mName= password.getText().toString().trim();
 
-            if (!mUsername.isEmpty() || !mPassword.isEmpty() || !mName.isEmpty() || mEmail.isEmpty()){
+            if (!mUsername.isEmpty() && !mPassword.isEmpty() && !mName.isEmpty() && mEmail.isEmpty()){
                 register();
-            }else{
-                username.setError("Username is empty!");
-                password.setError("Password is empty!");
-                name.setError("Name is empty!");
-                email.setError("Email is empty!");
+            }else if(mUsername.isEmpty()){
+                username.setError("");
+            }else if(mPassword.isEmpty() ){
+                password.setError("");
+            }else if (mName.isEmpty()){
+                name.setError("");
+            } else if (mEmail.isEmpty()){
+
+                email.setError("");
             }
             }
         });
