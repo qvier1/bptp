@@ -215,21 +215,19 @@ public class InputFragment extends Fragment implements OnMapReadyCallback{
                 if (!mName.isEmpty() &&  !mVarietas.isEmpty() && !mKab_kot.isEmpty() && !mKecamatan.isEmpty() && !mDesa.isEmpty()){
                     input();
                     Toast.makeText(getContext(), "Input Success!", Toast.LENGTH_SHORT);
-                }else{
-                    if (marker != null){
-                        ///todo
-                    }else if (mName.isEmpty()){
-                        name.setError("");
-                    }else if (mVarietas.isEmpty()){
-                        edVarietas.setError("");
-                    }else if (mKab_kot.isEmpty()){
-                        edKab_kota.setError("");
-                    }else if (mKecamatan.isEmpty()){
-                        edKecamatan.setError("");
-                    }else if (mDesa.isEmpty()){
-                        edDesa.setError("");
-                    }
                 }
+                if (mName.equals("")){
+                    name.setError("Empty");
+                }if (mVarietas.equals("")){
+                    edVarietas.setError("Empty");
+                }if (mKab_kot.equals("")){
+                    edKab_kota.setError("Empty");
+                }if (mKecamatan.equals("")){
+                    edKecamatan.setError("Empty");
+                }if (mDesa.equals("")){
+                    edDesa.setError("Empty");
+                }
+
             }
         });
 

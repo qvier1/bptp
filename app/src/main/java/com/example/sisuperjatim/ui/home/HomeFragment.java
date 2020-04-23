@@ -131,8 +131,7 @@ public class HomeFragment extends Fragment {
 
                     return params;
                 }
-            }
-                    ;
+            };
             RequestQueue requestQueue = Volley.newRequestQueue(getContext());
             requestQueue.add(stringRequest);
             isExecuted = true;

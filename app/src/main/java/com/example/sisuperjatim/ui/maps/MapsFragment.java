@@ -18,21 +18,22 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.baidu.location.LocationClient;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.cocoahero.android.geojson.GeoJSON;
-import com.cocoahero.android.geojson.GeoJSONObject;
-import com.example.sisuperjatim.InputFragment;
-import com.example.sisuperjatim.MainActivity;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import com.example.sisuperjatim.ProfileActivity;
 import com.example.sisuperjatim.R;
 import com.example.sisuperjatim.SessionManager;
-import com.example.sisuperjatim.ui.home.HomeFragment;
-import com.example.sisuperjatim.ui.profile.ProfileFragment;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationRequest;
+
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -40,16 +41,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
 import com.google.maps.android.data.geojson.GeoJsonPolygonStyle;
-
 
 
 import androidx.annotation.NonNull;
@@ -61,11 +59,15 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.content.Context.LOCATION_SERVICE;
 
@@ -79,7 +81,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     Marker marker;
     Button btnInput;
     LocationManager locationManager ;
-
+    String nama;
+    MapsFragment mapsFragment;
 
     Location currentlocation;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -102,13 +105,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
 
-
+        mMapView.getMapAsync(this);
 
         mMapView.onCreate(savedInstanceState);
-
-        Criteria criteria = new Criteria();
-//        String latitude = getArguments().getString("lat", "a");
-//        String longitude = getArguments().getString("lang", "a");
+//
+//        Criteria criteria = new Criteria();
+////        String latitude = getArguments().getString("lat", "a");
+////        String longitude = getArguments().getString("lang", "a");
         mMapView.onResume();
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
@@ -116,10 +119,27 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
             e.printStackTrace();
         }
 
+
 //        mMapView.getMapAsync(new OnMapReadyCallback() {
 //            @Override
 //            public void onMapReady(GoogleMap mMap) {
+//
+//
 //                mGoogleMap = mMap;
+//                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//
+//                try {
+//
+//                    GeoJsonLayer layer = new GeoJsonLayer(mMap, R.raw.administrasi, getContext());
+//                    GeoJsonPolygonStyle polygonStyle = layer.getDefaultPolygonStyle();
+//                    polygonStyle.setStrokeColor(Color.CYAN);
+//                    polygonStyle.setStrokeWidth(2);
+//                    layer.addLayerToMap();
+//
+//                } catch (Exception e) {
+//
+//                }
+//
 //
 //                // For showing a move to my location button
 //                mGoogleMap.setMyLocationEnabled(true);
@@ -143,26 +163,26 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     }
 
 
-    private Location fetcLastLocation() {
-
-        Task<Location> task = fusedLocationProviderClient.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null){
-
-                    currentlocation = location;
-
-                    Toast.makeText(getContext(),currentlocation.getLatitude()
-                            + ""+currentlocation.getLongitude(),Toast.LENGTH_SHORT).show();
-                    SupportMapFragment supportMapFragment = (SupportMapFragment)
-                            getFragmentManager().findFragmentById(R.id.mapview);
-                    supportMapFragment.getMapAsync(MapsFragment.this);
-                }
-            }
-        });
-        return currentlocation;
-    }
+//    private Location fetcLastLocation() {
+//
+//        Task<Location> task = fusedLocationProviderClient.getLastLocation();
+//        task.addOnSuccessListener(new OnSuccessListener<Location>() {
+//            @Override
+//            public void onSuccess(Location location) {
+//                if (location != null){
+//
+//                    currentlocation = location;
+//
+//                    Toast.makeText(getContext(),currentlocation.getLatitude()
+//                            + ""+currentlocation.getLongitude(),Toast.LENGTH_SHORT).show();
+//                    SupportMapFragment supportMapFragment = (SupportMapFragment)
+//                            getFragmentManager().findFragmentById(R.id.mapview);
+//                    supportMapFragment.getMapAsync(MapsFragment.this);
+//                }
+//            }
+//        });
+//        return currentlocation;
+//    }
 
 
     private Location getLastKnownLocation() {
@@ -232,19 +252,39 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
     @Override
     public void onMapReady(final GoogleMap googleMap) {
-         MapsInitializer.initialize(getContext());
-
+        MapsInitializer.initialize(getContext());
+        sessionManager = new SessionManager(getContext());
         mGoogleMap = googleMap;
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
         // For showing a move to my location button
         mGoogleMap.setMyLocationEnabled(true);
         Location location = getLastKnownLocation();
         LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions().position(latLng)
-                .title("Posisi Anda Sekarang");
+
         mGoogleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
         mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-        mGoogleMap.addMarker(markerOptions);
+//        mGoogleMap.addMarker(markerOptions);
+        showAllInputByCurrentUser();
+
+
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        JSONObject jsonObject = new
+             try {
+
+                GeoJsonLayer layer = new GeoJsonLayer(mGoogleMap, R.raw.administrasi, getContext());
+                GeoJsonPolygonStyle polygonStyle = layer.getDefaultPolygonStyle();
+                polygonStyle.setStrokeColor(Color.CYAN);
+                polygonStyle.setStrokeWidth(2);
+                layer.addLayerToMap();
+
+
+
+
+                } catch (Exception e) {
+
+                }
+
+
 
 
         btnInput.setOnClickListener(new View.OnClickListener() {
@@ -263,6 +303,63 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
             }
         });
+
+
+    }
+
+    private void showAllInputByCurrentUser() {
+        String URL_SELECT_MARKERS = "http://bptpjatim.com/markers.php";
+        HashMap<String, String> user = sessionManager.getUserData();
+        nama = user.get(sessionManager.NAME);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                URL_SELECT_MARKERS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = jsonObject.getJSONArray("result");
+                            for (int i = 0; i < jsonArray.length(); i++){
+                                JSONObject hasil = jsonArray.getJSONObject(i);
+                                Double lat = hasil.getDouble("latitude");
+                                Double lang = hasil.getDouble("langitude");
+                                LatLng latLng = new LatLng(lat,lang);
+                                MarkerOptions markerOptions = new MarkerOptions().position(latLng)
+                                        .title(lat.toString() + " , " + lang.toString());
+                                mGoogleMap.addMarker(markerOptions);
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+//                       Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+        )
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("nama",nama);
+
+
+
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
+
+
+
 
 
     }
