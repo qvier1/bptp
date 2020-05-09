@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
         HashMap<String, String> user = sessionManager.getUserData();
         nNama = user.get(sessionManager.NAME);
         listView = getView().findViewById(R.id.list_item);
-        do{
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST,
                     URL_SELECT,
                     new Response.Listener<String>() {
@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     params.put("nama",nNama);
-                    params.put("",nNama);
+
 
 
                     return params;
@@ -134,9 +134,9 @@ public class HomeFragment extends Fragment {
             };
             RequestQueue requestQueue = Volley.newRequestQueue(getContext());
             requestQueue.add(stringRequest);
-            isExecuted = true;
 
-        }while(!isExecuted);
+
+
 
     }
 
@@ -162,6 +162,8 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
         if (sessionManager.is_Loggin()){
 //
             get_data();
@@ -227,7 +229,7 @@ class CustomAdapter extends BaseAdapter {
         kota = view.findViewById(R.id.kota);
         provinsi = view.findViewById(R.id.provinsi);
 
-        nama.setText("Nama pengguna  : "+ model.get(position).getNama());
+        nama.setText("Inisial  : "+ model.get(position).getNama());
         kota.setText(model.get(position).getKota());
         provinsi.setText("Provinsi  : "+model.get(position).getProvinsi());
         return view;

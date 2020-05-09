@@ -18,6 +18,8 @@ public class HubungiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hubungi);
 
+
+
         ivBackHubungi = findViewById(R.id.ivBackHubungi);
         ivBackHubungi.setOnClickListener(new View.OnClickListener() {
             @Override

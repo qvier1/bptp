@@ -1,11 +1,12 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="16dp"
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context=".ProfileActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,269 +15,717 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Nama"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-<!--        <TextView-->
-<!--            android:id="@+id/nama"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text=""-->
-<!--            android:textSize="20dp"-->
-<!--            android:layout_marginTop="16dp"/>-->
+            android:layout_marginTop="16dp"
+            android:text="Inisial dan No Observasi"
+            android:textSize="16dp" />
+
         <EditText
-            android:id="@+id/nama"
+            android:id="@+id/edInitial"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Nama"
+            android:layout_height="35dp"
+            android:background="@drawable/grid_input"
+            android:hint="Inisial"
             android:singleLine="true"
-            android:background="@drawable/grid_input"/>
+            android:textSize="14dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:datePickerMode="spinner"
+            android:text="Tanggal"
+            android:textSize="16dp" />
+
+        <DatePicker
+            android:id="@+id/tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/grid_input" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:text="Provinsi"
+            android:textSize="16dp" />
+
+        <Spinner
+            android:id="@+id/provinsi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/grid_input"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/prov" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Kabupaten/Kota"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <EditText
+            android:textSize="16dp" />
+
+        <Spinner
             android:id="@+id/kabupaten"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/kab"/>
+            android:entries="@array/kab" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Kecamatan"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <EditText
+            android:textSize="16dp" />
+
+        <Spinner
             android:id="@+id/kecamatan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
             android:entries="@array/kec"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Desa"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <EditText
+            android:textSize="16dp" />
+
+        <Spinner
             android:id="@+id/desa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/desa"/>
+            android:entries="@array/desa" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
             android:text="Koordinat"
-            android:textSize="20dp"/>
+            android:textSize="16dp" />
+
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapinput"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            />
+            android:layout_height="100dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Foto"
+            android:textSize="16dp" />
+
+
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_camera"
+            android:backgroundTint="@color/colorAbuAbu3" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Jenis Lahan"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/jenis_lahan"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/jenis_lahan"/>
+            android:entries="@array/jenis_lahan" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Bahan Induk"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/bahan_induk"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/bahan_induk"/>
+            android:entries="@array/bahan_induk" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Penggunaan Lahan"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/penggunaan_lahan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/penggunaan_lahan"/>
+            android:entries="@array/penggunaan_lahan" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Relief"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/relief"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/relief"/>
+            android:entries="@array/relief" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:text="Lereng"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/lereng"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/grid_input"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textSize="14dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Kondisi Lahan"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/kondisi_lahan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/kondisi_lahan"/>
+            android:entries="@array/kondisi_lahan" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Drainese"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/drainase"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/drainase"/>
+            android:entries="@array/drainase" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Reaksi Tanah"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/reaksi_tanah"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/reaksi_tanah"/>
+            android:entries="@array/reaksi_tanah" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Tanaman Utama"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/tanaman_utama"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/tanaman_utama"/>
+            android:entries="@array/tanaman_utama" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Tekstur"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/tekstur"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/tekstur"/>
+            android:entries="@array/tekstur" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Kedalaman Olah"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="16dp" />
+
         <Spinner
             android:id="@+id/kedalaman_olah"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/grid_input"
             android:drawSelectorOnTop="true"
-            android:entries="@array/kedalaman_olah"/>
+            android:entries="@array/kedalaman_olah" />
+
+
+        <GridLayout
+            android:id="@+id/mainGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/drawabelinput"
+            android:columnOrderPreserved="false"
+            android:elevation="2dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:text="Musim Tanam"
+                    android:textColor="@color/colorHijau"
+                    android:textSize="20dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- Pola Tanam"
+                    android:textSize="14dp" />
+
+                <android.widget.Spinner
+                    android:id="@+id/polatanamMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/pola_tanam" />
+
+
+                <android.widget.Spinner
+                    android:id="@+id/polatanamMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/pola_tanam" />
+
+                <android.widget.Spinner
+                    android:id="@+id/polatanamMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/pola_tanam" />
+
+                VARIETAS
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- Varietas"
+                    android:textSize="14dp" />
+
+                <android.widget.Spinner
+                    android:id="@+id/varietasMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/varietas" />
+
+                <android.widget.Spinner
+                    android:id="@+id/varietasMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/varietas" />
+
+                <android.widget.Spinner
+                    android:id="@+id/varietasMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/varietas" />
+
+
+                PROVITAS
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- Provitas"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/provitasMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:entries="@array/provitas"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/provitasMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:entries="@array/provitas"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/provitasMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:entries="@array/provitas"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Jenis Pupuk"
+                    android:textColor="@color/colorHijau"
+                    android:textSize="20dp" />
+
+
+                ORGAMIK
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- Organik"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/organikMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MH(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/organikMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK1(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                <EditText
+                    android:id="@+id/organikMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK2(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                UREA
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- Urea"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/ureaMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MH(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/ureaMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK1(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                <EditText
+                    android:id="@+id/ureaMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK2(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                KCL
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- KCL"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/kclMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MH(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/kclMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK1(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                <EditText
+                    android:id="@+id/kclMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK2(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                PONSKA
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- Phonska"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/phonskaMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MH(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/phonskaMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK1(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                <EditText
+                    android:id="@+id/phonskaMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK2(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                SP36
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- SP36"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/sp36MH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MH(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/sp36MK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK1(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                <EditText
+                    android:id="@+id/sp36MK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK2(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                ZA
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="- ZA"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/zaMH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MH(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/zaMK1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK1(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+
+                <EditText
+                    android:id="@+id/zaMK2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/grid_input"
+                    android:hint="MK2(kg/ha)"
+                    android:inputType="number"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+
+        </GridLayout>
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Pola Tanam"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <Spinner
-            android:id="@+id/pola_tanam"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/grid_input"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/pola_tanam"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Varietas"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <EditText
-            android:id="@+id/varietas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/grid_input"
-            android:singleLine="true"
-            android:hint="Varietas"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Provitas"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <Spinner
-            android:id="@+id/provitas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/grid_input"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/provitas"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Penggunaan Pupuk"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <Spinner
-            android:id="@+id/penggunaan_pupuk"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/grid_input"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/penggunaan_pupuk"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:text="Catatan"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="20dp" />
+
         <EditText
             android:id="@+id/catatan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
             android:background="@drawable/grid_komentar"
             android:hint="Catatan"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
@@ -290,4 +739,7 @@
             android:textColor="@color/colorPutih"
             android:textSize="20dp" />
     </LinearLayout>
+
+
+
 </ScrollView>

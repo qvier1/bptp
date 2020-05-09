@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.sisuperjatim.InputDataLapang;
 import com.example.sisuperjatim.ProfileActivity;
 import com.example.sisuperjatim.R;
 import com.example.sisuperjatim.SessionManager;
@@ -268,13 +269,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
 
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        JSONObject jsonObject = new
+
              try {
 
-                GeoJsonLayer layer = new GeoJsonLayer(mGoogleMap, R.raw.administrasi, getContext());
+                GeoJsonLayer layer = new GeoJsonLayer(mGoogleMap, R.raw.kawasanjatim, getContext());
                 GeoJsonPolygonStyle polygonStyle = layer.getDefaultPolygonStyle();
                 polygonStyle.setStrokeColor(Color.CYAN);
-                polygonStyle.setStrokeWidth(2);
+                polygonStyle.setFillColor(2);
                 layer.addLayerToMap();
 
 
@@ -292,6 +293,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
+
 //                Fragment mFrag = new InputFragment();
 //                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //                transaction.replace(R.id.nav_host_fragment, mFrag);

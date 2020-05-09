@@ -1,39 +1,549 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="prov" >
+        <item>Jawa Timur</item>
+        <item>Banten</item>
+        <item>DKI Jakarta</item>
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+        <item>DIY Yogyakarta</item>
+    </string-array>
+
     <string-array name="kab">
-        <item>M</item>
-        <item>Kota Malang</item>
+        <item>Bangkalan</item>
+        <item>Banyuwangi</item>
         <item>Kota Batu</item>
-        <item>Mojokerto</item>
-        <item>Pasuruan</item>
-        <item>Madiun</item>
-        <item>Jombang</item>
+        <item>Blitar</item>
+        <item>Bojonegoro</item>
+        <item>Bondowoso</item>
+        <item>Gresik</item>
         <item>Jember</item>
+        <item>Jombang</item>
+        <item>Kediri</item>
+        <item>Lamongan</item>
+        <item>Lumajang</item>
+        <item>Madiun</item>
+        <item>Magetan</item>
+        <item>Malang</item>
+        <item>Mojokerto</item>
+        <item>Nganjuk</item>
+        <item>Ngawi</item>
+        <item>Pacitan</item>
+        <item>Pamekasan</item>
+        <item>Pasuruan</item>
+        <item>Ponorogo</item>
+        <item>Probolinggo</item>
+        <item>Sampang</item>
+        <item>Sidoarjo</item>
+        <item>Situbondo</item>
+        <item>Sumenep</item>
+        <item>Surabaya</item>
+        <item>Trenggalek</item>
+        <item>Tuban</item>
+        <item>Tulungagung</item>
+
     </string-array>
     <string-array name="kec">
+
+
         <item>Donomulyo</item>
-        <item>Kota Malang</item>
-        <item>Kota Batu</item>
-        <item>Mojokerto</item>
-        <item>Pasuruan</item>
-        <item>Madiun</item>
-        <item>Jombang</item>
-        <item>Jember</item>
+        <item>Kalipare</item>
+        <item>Pagak</item>
+        <item>Bantur</item>
+        <item>Gedangan</item>
+        <item>Sumbermanjing</item>
+        <item>Dampit</item>
+        <item>Tirto Yudo</item>
+        <item>Ampelgading</item>
+        <item>Poncokusumo</item>
+        <item>Wajak</item>
+        <item>Turen</item>
+        <item>Bululawang</item>
+        <item>Gondanglegi</item>
+        <item>Pagelaran</item>
+        <item>Kepanjen</item>
+        <item>Sumber Pucung</item>
+        <item>Kromengan</item>
+        <item>Ngajum</item>
+        <item>Wonosari</item>
+        <item>Wagir</item>
+        <item>Pakisaji</item>
+        <item>Tajinan</item>
+        <item>Tumpang</item>
+        <item>Pakis</item>
+        <item>Jabung</item>
+        <item>Lawang</item>
+        <item>Singosari</item>
+        <item>Karangploso</item>
+        <item>Dau</item>
+        <item>Pujon</item>
+        <item>Ngantang</item>
+        <item>Kasembon</item>
+
+
     </string-array>
     <string-array name="desa">
-        <item>Tlogo Sari</item>
-        <item>Kota Malang</item>
-        <item>Kota Batu</item>
-        <item>Mojokerto</item>
-        <item>Pasuruan</item>
-        <item>Madiun</item>
-        <item>Jombang</item>
-        <item>Jember</item>
+
+        <item>Sumberoto</item>
+        <item>Purworejo</item>
+        <item>Mentaraman</item>
+        <item>Donomulyo</item>
+        <item>Tempursari</item>
+        <item>Tlogosari</item>
+        <item>Kedungsalam</item>
+        <item>Banjarjo</item>
+        <item>Tulungrejo</item>
+        <item>Purwodadi</item>
+        <item>Arjosari</item>
+        <item>Tumpakrejo</item>
+        <item>Kaliasri</item>
+        <item>Putukrejo</item>
+        <item>Sumberpetung</item>
+        <item>Kalipare</item>
+        <item>Sukowilangun</item>
+        <item>Arjowilangun</item>
+        <item>Kalirejo</item>
+        <item>Sumbermanjing Kulon</item>
+        <item>Pandanrejo</item>
+        <item>Sumberkerto</item>
+        <item>Sempol</item>
+        <item>Pagak</item>
+        <item>Sumberrejo</item>
+        <item>Gampingan</item>
+        <item>Tlogorejo</item>
+        <item>Bandungrejo</item>
+        <item>Sumberbening</item>
+        <item>Srigonco</item>
+        <item>Wonorejo</item>
+        <item>Bantur</item>
+        <item>Pringgodani</item>
+        <item>Rejosari</item>
+        <item>Wonokerto</item>
+        <item>Rejoyoso</item>
+        <item>Karangsari</item>
+        <item>Tumpakrejo</item>
+        <item>Sindurejo</item>
+        <item>Gajahrejo</item>
+        <item>Sidodadi</item>
+        <item>Gedangan</item>
+        <item>Segaran</item>
+        <item>Sumberejo</item>
+        <item>Girimulyo</item>
+        <item>Sitiarjo</item>
+        <item>Tambakrejo</item>
+        <item>Kedungbanteng</item>
+        <item>Tambakasri</item>
+        <item>Tegalrejo</item>
+        <item>Ringinkembar</item>
+        <item>Sumberagung</item>
+        <item>Harjokuncaran</item>
+        <item>Argotirto</item>
+        <item>Ringinsari</item>
+        <item>Druju</item>
+        <item>Sumbermanjing Wetan</item>
+        <item>Klepu</item>
+        <item>Sekarbanyu</item>
+        <item>Sidoasri</item>
+        <item>Sukodono</item>
+        <item>Srimulyo</item>
+        <item>Baturetno</item>
+        <item>Bumirejo</item>
+        <item>Sumbersuko</item>
+        <item>Amadanom</item>
+        <item>Dampit</item>
+        <item>Pamotan</item>
+        <item>Majangtengah</item>
+        <item>Rembun</item>
+        <item>Pojok</item>
+        <item>Jambangan</item>
+        <item>Purwodadi</item>
+        <item>Pujiharjo</item>
+        <item>Sumbertangkil</item>
+        <item>Kepatihan</item>
+        <item>Jogomulyan</item>
+        <item>Tirtoyudo</item>
+        <item>Gadungsari</item>
+        <item>Tlogosari</item>
+        <item>Sukorejo</item>
+        <item>Ampelgading</item>
+        <item>Tamankuncaran</item>
+        <item>Wonoagung</item>
+        <item>Tamansatriyan</item>
+        <item>Lebakharjo</item>
+        <item>Wirotaman</item>
+        <item>Tamanasri</item>
+        <item>Sonowangi</item>
+        <item>Tirtomarto</item>
+        <item>Purwoharjo</item>
+        <item>Sidorenggo</item>
+        <item>Tirtomoyo</item>
+        <item>Tawangagung</item>
+        <item>Simojayan</item>
+        <item>Argoyuwono</item>
+        <item>Mulyoasri</item>
+        <item>Tamansari</item>
+        <item>Dawuhan</item>
+        <item>Sumberejo</item>
+        <item>Pandansari</item>
+        <item>Ngadireso</item>
+        <item>Karanganyar</item>
+        <item>Jambesari</item>
+        <item>Pajaran</item>
+        <item>Argosuko</item>
+        <item>Ngebruk</item>
+        <item>Karangnongko</item>
+        <item>Wonomulyo</item>
+        <item>Belung</item>
+        <item>Wonorejo</item>
+        <item>Poncokusumo</item>
+        <item>Wringinanom</item>
+        <item>Gubukklakah</item>
+        <item>Ngadas</item>
+        <item>Sumberputih</item>
+        <item>Wonoayu</item>
+        <item>Bambang</item>
+        <item>Bringin</item>
+        <item>Dadapan</item>
+        <item>Patokpicis</item>
+        <item>Blayu</item>
+        <item>Codo</item>
+        <item>Sukolilo</item>
+        <item>Kidangbang</item>
+        <item>Sukoanyar</item>
+        <item>Wajak</item>
+        <item>Ngembal</item>
+        <item>Kemulan</item>
+        <item>Tawangrejeni</item>
+        <item>Sawahan</item>
+        <item>Undaan</item>
+        <item>Gedog Kulon</item>
+        <item>Gedog Wetan</item>
+        <item>Talok</item>
+        <item>Sedayu</item>
+        <item>Tanggung</item>
+        <item>Jeru</item>
+        <item>Turen</item>
+        <item>Pagedangan</item>
+        <item>Sanankerto</item>
+        <item>Sananrejo</item>
+        <item>Kedok</item>
+        <item>Talangsuko</item>
+        <item>Tumpukrenteng</item>
+        <item>Sukonolo</item>
+        <item>Gading</item>
+        <item>Krebet</item>
+        <item>Bakalan</item>
+        <item>Sudimoro</item>
+        <item>Kasri</item>
+        <item>Pringu</item>
+        <item>Kasembon</item>
+        <item>Kuwolu</item>
+        <item>Krebet Senggrong</item>
+        <item>Lumbangsari</item>
+        <item>Wandanpuro</item>
+        <item>Bululawang</item>
+        <item>Sempalwadak</item>
+        <item>Sukorejo</item>
+        <item>Bulupitu</item>
+        <item>Sukosari</item>
+        <item>Panggungrejo</item>
+        <item>Gondanglegi Kulon</item>
+        <item>Gondanglegi Wetan</item>
+        <item>Sepanjang</item>
+        <item>Putat Kidul</item>
+        <item>Putat Lor</item>
+        <item>Urek Urek</item>
+        <item>Ketawang</item>
+        <item>Ganjaran</item>
+        <item>Putukrejo</item>
+        <item>Sumberjaya</item>
+        <item>Kanigoro</item>
+        <item>Balearjo</item>
+        <item>Kademangan</item>
+        <item>Suwaru</item>
+        <item>Clumprit</item>
+        <item>Sidorejo</item>
+        <item>Pagelaran</item>
+        <item>Banjarejo</item>
+        <item>Brongkal</item>
+        <item>Karangsuko</item>
+        <item>Jenggolo</item>
+        <item>Sengguruh</item>
+        <item>Kemiri</item>
+        <item>Tegalsari</item>
+        <item>Mangunrejo</item>
+        <item>Panggungrejo</item>
+        <item>Kedungpedaringan</item>
+        <item>Penarukan</item>
+        <item>Cepokomulyo</item>
+        <item>Kepanjen</item>
+        <item>Talangagung</item>
+        <item>Dilem</item>
+        <item>Ardirejo</item>
+        <item>Sukoraharjo</item>
+        <item>Curung Rejo</item>
+        <item>Jatirejoyoso</item>
+        <item>Ngadilangkung</item>
+        <item>Mojosari</item>
+        <item>Karangkates</item>
+        <item>Sumberpucung</item>
+        <item>Jatiguwi</item>
+        <item>Sambigede</item>
+        <item>Senggreng</item>
+        <item>Ternyang</item>
+        <item>Ngebruk</item>
+        <item>Slorok</item>
+        <item>Jatikerto</item>
+        <item>Ngadirejo</item>
+        <item>Karangrejo</item>
+        <item>Kromengan</item>
+        <item>Peniwen</item>
+        <item>Jambuwer</item>
+        <item>Ngajum</item>
+        <item>Palaan</item>
+        <item>Ngasem</item>
+        <item>Banjarsari</item>
+        <item>Kranggan</item>
+        <item>Kesamben</item>
+        <item>Babadan</item>
+        <item>Balesari</item>
+        <item>Maguan</item>
+        <item>Kluwut</item>
+        <item>Plandi</item>
+        <item>Plaosan</item>
+        <item>Kebobang</item>
+        <item>Bangelan</item>
+        <item>Sumberdem</item>
+        <item>Sumbertempur</item>
+        <item>Wonosari</item>
+        <item>Sumbersuko</item>
+        <item>Mendalanwangi</item>
+        <item>Sitirejo</item>
+        <item>Parangargo</item>
+        <item>Gondowangi</item>
+        <item>Pandanrejo</item>
+        <item>Petungsewu</item>
+        <item>Sukodadi</item>
+        <item>Sidorahayu</item>
+        <item>Jedong</item>
+        <item>Dalisodo</item>
+        <item>Pandanlandung</item>
+        <item>Permanu</item>
+        <item>Karangpandan</item>
+        <item>Glanggang</item>
+        <item>Sutojayan</item>
+        <item>Wonokerso</item>
+        <item>Karangduren</item>
+        <item>Pakisaji</item>
+        <item>Jatisari</item>
+        <item>Wadung</item>
+        <item>Genengan</item>
+        <item>Kebonagung</item>
+        <item>Kendalpayak</item>
+        <item>Tambakasri</item>
+        <item>Tangkilsari</item>
+        <item>Jambearjo</item>
+        <item>Jatisari</item>
+        <item>Pandanmulyo</item>
+        <item>Ngawonggo</item>
+        <item>Purwosekar</item>
+        <item>Gunungronggo</item>
+        <item>Gunungsari</item>
+        <item>Tajinan</item>
+        <item>Randugading</item>
+        <item>Sumbersuko</item>
+        <item>Ngingit</item>
+        <item>Kidal</item>
+        <item>Kambingan</item>
+        <item>Pandanajeng</item>
+        <item>Pulungdowo</item>
+        <item>Bokor</item>
+        <item>Slamet</item>
+        <item>Wringinsongo</item>
+        <item>Jeru</item>
+        <item>Malangsuko</item>
+        <item>Tumpang</item>
+        <item>Tulusbesar</item>
+        <item>Benjor</item>
+        <item>Duwet</item>
+        <item>Duwet Krajan</item>
+        <item>Sekarpuro</item>
+        <item>Ampeldento</item>
+        <item>Sumberkradenan</item>
+        <item>Kedungrejo</item>
+        <item>Banjarrejo</item>
+        <item>Pucang Songo</item>
+        <item>Sukoanyar</item>
+        <item>Sumberpasir</item>
+        <item>Pakiskembar</item>
+        <item>Pakisjajar</item>
+        <item>Bunutwetan</item>
+        <item>Asrikaton</item>
+        <item>Saptorenggo</item>
+        <item>Mangliawan</item>
+        <item>Tirtomoyo</item>
+        <item>Kenongo</item>
+        <item>Ngadirejo</item>
+        <item>Taji</item>
+        <item>Pandansari Lor</item>
+        <item>Sukopuro</item>
+        <item>Sidorejo</item>
+        <item>Sukolilo</item>
+        <item>Sidomulyo</item>
+        <item>Gading Kembar</item>
+        <item>Kemantren</item>
+        <item>Argosari</item>
+        <item>Slamparejo</item>
+        <item>Kemiri</item>
+        <item>Jabung</item>
+        <item>Gunung Jati</item>
+        <item>Sidoluhur</item>
+        <item>Srigading</item>
+        <item>Sidodadi</item>
+        <item>Bedali</item>
+        <item>Kalirejo</item>
+        <item>Mulyoarjo</item>
+        <item>Sumber Ngepoh</item>
+        <item>Sumber Porong</item>
+        <item>Turirejo</item>
+        <item>Lawang</item>
+        <item>Ketindan</item>
+        <item>Wonorejo</item>
+        <item>Langlang</item>
+        <item>Tunjungtirto</item>
+        <item>Banjararum</item>
+        <item>Watugede</item>
+        <item>Dengkol</item>
+        <item>Wonorejo</item>
+        <item>Baturetno</item>
+        <item>Tamanharjo</item>
+        <item>Losari</item>
+        <item>Pagentan</item>
+        <item>Purwoasri</item>
+        <item>Klampok</item>
+        <item>Gunungrejo</item>
+        <item>Candirenggo</item>
+        <item>Ardimulyo</item>
+        <item>Randuagung</item>
+        <item>Toyomarto</item>
+        <item>Tegalgondo</item>
+        <item>Kepuharjo</item>
+        <item>Ngenep</item>
+        <item>Ngijo</item>
+        <item>Ampeldento</item>
+        <item>Girimoyo</item>
+        <item>Bocek</item>
+        <item>Donowarih</item>
+        <item>Tawangargo</item>
+        <item>Kucur</item>
+        <item>Kalisongo</item>
+        <item>Karangwidoro</item>
+        <item>Petung Sewu</item>
+        <item>Selorejo</item>
+        <item>Tegalweru</item>
+        <item>Landungsari</item>
+        <item>Gadingkulon</item>
+        <item>Mulyoagung</item>
+        <item>Sumbersekar</item>
+        <item>Bendosari</item>
+        <item>Sukomulyo</item>
+        <item>Pujon Kidul</item>
+        <item>Pandesari</item>
+        <item>Pujon Lor</item>
+        <item>Ngroto</item>
+        <item>Ngabab</item>
+        <item>Tawangsari</item>
+        <item>Madiredo</item>
+        <item>Wiyurejo</item>
+        <item>Pagersari</item>
+        <item>Sidodadi</item>
+        <item>Banjarejo</item>
+        <item>Purworejo</item>
+        <item>Ngantru</item>
+        <item>Banturejo</item>
+        <item>Pandansari</item>
+        <item>Mulyorejo</item>
+        <item>Sumberagung</item>
+        <item>Kaumrejo</item>
+        <item>Tulungrejo</item>
+        <item>Waturejo</item>
+        <item>Jombok</item>
+        <item>Pondok Agung</item>
+        <item>Bayem</item>
+        <item>Pait</item>
+        <item>Wonoagung</item>
+        <item>Kasembon</item>
+        <item>Sukosari</item>
+        <item>Arjowinangun</item>
+        <item>Tlogowaru</item>
+        <item>Wonokoyo</item>
+        <item>Bumiayu</item>
+        <item tools:ignore="Typos">Buring</item>
+        <item>Mergosono</item>
+        <item>Kotalama</item>
+        <item>Kedungkandang</item>
+        <item>Sawojajar</item>
+        <item>Madyopuro</item>
+        <item>Lesanpuro</item>
+        <item>Cemorokandang</item>
+        <item>Kebonsari</item>
+        <item>Gadang</item>
+        <item>Ciptomulyo</item>
+        <item>Sukun</item>
+        <item>Bandungrejosari</item>
+        <item>Bakalan Krajan</item>
+        <item>Mulyorejo</item>
+        <item>Bandulan</item>
+        <item>Tanjungrejo</item>
+        <item>Pisang Candi</item>
+        <item>Karang Besuki</item>
+        <item>Kasin</item>
+        <item>Sukoharjo</item>
+        <item>Kidul Dalem</item>
+        <item>Kauman</item>
+        <item>Bareng</item>
+        <item>Gadingkasri</item>
+        <item>Oro Oro Dowo</item>
+        <item>Klojen</item>
+        <item>Rampal Celaket</item>
+        <item>Samaan</item>
+        <item>Penanggungan</item>
+        <item>Jodipan</item>
+        <item>Polehan</item>
+        <item>Kesatrian</item>
+        <item>Bunulrejo</item>
+        <item>Purwantoro</item>
+        <item>Pandanwangi</item>
+        <item>Blimbing</item>
+        <item>Purwodadi</item>
+        <item>Polowijen</item>
+        <item>Arjosari</item>
+        <item>Balearjosari</item>
+        <item>Merjosari</item>
+        <item>Dinoyo</item>
+        <item>Sumbersari</item>
+        <item>Ketawanggede</item>
+        <item>Jatimulyo</item>
+        <item>Lowokwaru</item>
+        <item>Tulusrejo</item>
+        <item>Mojolangu</item>
+        <item>Tunjungsekar</item>
+        <item>Tasikmadu</item>
+        <item>Tunggulwulung</item>
+        <item>Tlogomas</item>
+
+
+
     </string-array>
     <string-array name="jenis_lahan">
+
         <item>Lahan Kering</item>
         <item>Lahan Basah</item>
-        <item>Lahan Rawa</item>
+        <item>Batugamping/Napal</item>
+        <item>Batuliat</item>
+
+
+
     </string-array>
     <string-array name="bahan_induk">
         <item>Aluvium</item>
@@ -44,110 +554,123 @@
         <item>Aluvium-marin</item>
         <item>Marin</item>
         <item>Organik/Gambut</item>
+
+
     </string-array>
     <string-array name="penggunaan_lahan">
-        <item>	Sawah irigasi	</item>
-        <item>	Sawah tadah hujan	</item>
-        <item>	Sawah tambak	</item>
-        <item>	Rawa	</item>
-        <item>	Tambak	</item>
-        <item>	Tegalan/Kebun	</item>
-        <item>	Padang rumput	</item>
-        <item>	Perkebunan rakyat	</item>
-        <item>	Perkebunan swasta	</item>
-        <item>	Perhutani	</item>
-        <item>	Hutan	</item>
+        <item>Sawah irigasi</item>
+        <item>Sawah tadah hujan</item>
+        <item>Sawah tambak</item>
+        <item>Rawa</item>
+        <item>Tambak</item>
+        <item>Tegalan/Kebun</item>
+        <item>Padang rumput</item>
+        <item>Perkebunan rakyat</item>
+        <item>Perkebunan swasta</item>
+        <item>Perhutani</item>
+        <item>Hutan</item>
     </string-array>
+
+
+
     <string-array name="relief">
-        <item>	Datar</item>
-        <item>	Berombak</item>
-        <item>	Bergelombang</item>
-        <item>	Berbukit kecil</item>
-        <item>	Berbukit</item>
-        <item>	Bergunung</item>
+        <item>Datar</item>
+        <item>Berombak</item>
+        <item>Bergelombang</item>
+        <item>Berbukit kecil</item>
+        <item>Berbukit</item>
+        <item>Bergunung</item>
     </string-array>
+
+
     <string-array name="kondisi_lahan">
         <item>	Teras	</item>
         <item>	Non teras	</item>
     </string-array>
+
+
     <string-array name="drainase">
-        <item>	Sangat terhambat	</item>
-        <item>	Terhambat	</item>
-        <item>	Sedang	</item>
-        <item>	Baik	</item>
-        <item>	Cepat	</item>
+        <item>Sangat terhambat</item>
+        <item>Terhambat</item>
+        <item>Sedang</item>
+        <item>Baik</item>
+        <item>Agak cepat</item>
+        <item>Cepat</item>
     </string-array>
+
+
     <string-array name="reaksi_tanah">
-        <item>	Sangat masam</item>
-        <item>	Masam</item>
-        <item>	Agak masam</item>
-        <item>	Netral</item>
-        <item>	Alkalis</item>
-        <item>	Sangat alkalis</item>
+        <item>Sangat masam</item>
+        <item>Masam</item>
+        <item>Agak masam)</item>
+        <item>Netral</item>
+        <item>Alkalis</item>
+        <item>Sangat alkalis (ph >8,0)</item>
     </string-array>
+
+
     <string-array name="tanaman_utama">
-        <item>	Padi	</item>
-        <item>	Jagung	</item>
-        <item>	Kedelai	</item>
-        <item>	Kacang tanah	</item>
-        <item>	Hortikultura sayur	</item>
-        <item>	Hortikultura buah	</item>
-        <item>	Tebu	</item>
-        <item>	Kopi	</item>
-        <item>	Kakao	</item>
-        <item>	Tembakau	</item>
-        <item>	Sengon	</item>
-        <item>	Pinus	</item>
-        <item>	Jati	</item>
-        <item>	Mahoni	</item>
+        <item>Padi</item>
+        <item>Jagung</item>
+        <item>Kedelai</item>
+        <item>Kacang tanah</item>
+        <item>Hortikultura sayur</item>
+        <item>Hortikultura buah</item>
+        <item>Tebu</item>
+        <item>Kopi</item>
+        <item>Kakao</item>
+        <item>Tembakau</item>
+        <item>Sengon</item>
+        <item>Pinus</item>
     </string-array>
+
+
     <string-array name="tekstur">
         <item>	Halus	</item>
         <item>	Sedang	</item>
         <item>	Kasar	</item>
     </string-array>
-    <string-array name="kedalaman_olah">
-        <item>	Sangat dangkal ( Kurang dari 5 cm) </item>
-        <item>	Dangkal (5-15 cm) </item>
-        <item>	Sedang (15-25 cm) </item>
-        <item>	Dalam (25-35 cm) </item>
-        <item>	Sangat dalam ( Lebih dari 35 cm) </item>
-    </string-array>
-    <string-array name="pola_tanam">
-        <item>	Padi-Padi-Padi </item>
-        <item>	Padi-Padi-Palawija </item>
-        <item>	Padi-Palawija-Palawija </item>
-        <item>	Padi-Palawija-Bera </item>
-        <item>	Padi-Hortikultura-Hortikultura </item>
-        <item>	Padi-Hortikultura-Bera </item>
-        <item>	Padi-Palawija-Tembakau </item>
-        <item>	Tebu </item>
-        <item>	Lain-Lain </item>
-    </string-array>
-    <string-array name="varietas">
-        <item>	Inpari	</item>
-        <item>	Ciherang	</item>
-        <item>	IR 64	</item>
-        <item>	Mekongga	</item>
-        <item>	Membramo	</item>
-        <item>	Situbagendit	</item>
-        <item>	Logawa	</item>
-        <item>	Hibrida	</item>
-    </string-array>
+
+
     <string-array name="provitas">
-        <item>	Sangat rendah ( Kurang Dari 3 t/ha)</item>
+        <item>	Halus	</item>
+        <item>	Sedang	</item>
+        <item>	Kasar	</item>
+    </string-array>
+
+    <string-array name="kedalaman_olah">
+        <item>	Sangat Rendah ( Kurang dari 3 t/ha) </item>
         <item>	Rendah (3-5 t/ha) </item>
         <item>	Sedang (5-7 t/ha) </item>
-        <item>	Tinggi (7-9 t/ha) </item>
+        <item>	Tinggi(7-9 t/ha) </item>
         <item>	Sangat tinggi ( Lebih dari 9 t/ha) </item>
+
     </string-array>
-    <string-array name="penggunaan_pupuk">
-        <item>	Organik	</item>
-        <item>	Urea	</item>
-        <item>	KCl	</item>
-        <item>	Phonska	</item>
-        <item>	SP36	</item>
-        <item>	ZA	</item>
+    <string-array name="pola_tanam">
+        <item>Padi</item>
+        <item>Jagung</item>
+        <item>Kedelai</item>
+        <item>Kacang tanah</item>
+        <item>Hortikultura sayur</item>
+        <item>Hortikultura buah</item>
+        <item>Tebu</item>
+        <item>Tembakau</item>
+        <item>Bera</item>
+        <item>Palawija</item>
     </string-array>
+
+
+    <string-array name="varietas">
+        <item>Inpari</item>
+        <item>Ciherang</item>
+        <item>IR 64</item>
+        <item>Mekongga</item>
+        <item>Membramo</item>
+        <item>Situbagendit</item>
+        <item>Logawa</item>
+        <item>Hibrida</item>
+    </string-array>
+
+
 
 </resources>

@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:background="#438C1D"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_input"
+            android:textColor="#020202"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:text="Input Data Lapang"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <RelativeLayout
+            android:layout_marginLeft="10dp"
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/tv_initial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll1"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="initial dan no observasi"
+                android:textSize="14sp"
+                tools:ignore="NotSibling,UnusedAttribute"/>
+
+            <EditText
+                android:id="@+id/edInitial"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/ll1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/tv_initial"
+                android:autofillHints=""
+                android:inputType="number"
+                tools:ignore="LabelFor,NotSibling"
+                android:layout_toEndOf="@+id/tv_initial" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_initial"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="tanggal"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <DatePicker
+                android:layout_marginRight="10dp"
+                android:id="@+id/edTangggal"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_date"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/edInitial"
+                android:layout_width="match_parent"
+                android:inputType="datetime"
+                android:layout_height="25dp"
+                android:autofillHints=""
+                tools:ignore="LabelFor"
+                android:layout_toEndOf="@id/tv_date" />
+
+            <TextView
+                android:id="@+id/tv_prov"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_date"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="provinsi"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:autofillHints="Pilih Provinsi"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/et_provinsi"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/edTangggal"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/tv_prov"
+                android:layout_toEndOf="@+id/tv_prov" />
+
+            <TextView
+                android:id="@+id/tv_kab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_prov"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="kab_kota"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginRight="5dp"
+                android:id="@+id/edKab_kota"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_kab"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/et_provinsi"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toEndOf="@+id/tv_kab" />
+
+            <TextView
+                android:id="@+id/tv_kec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_kab"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="kecamatan"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginRight="5dp"
+                android:id="@+id/edKecamatan"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_kec"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/edKab_kota"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toEndOf="@+id/tv_kec" />
+
+            <TextView
+                android:id="@+id/tv_desa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_kec"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="desa"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginRight="5dp"
+                android:id="@+id/edDesa"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_desa"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/edKecamatan"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toEndOf="@+id/tv_desa"/>
+
+            <TextView
+                android:id="@+id/tv_koordinat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_desa"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#000000"
+                android:text="koordinat"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <com.google.android.gms.maps.MapView
+                android:layout_marginRight="5dp"
+                android:id="@+id/mapinput"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_koordinat"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/edDesa"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:autofillHints=""
+                tools:ignore="LabelFor"
+                android:layout_toEndOf="@id/tv_koordinat" />
+
+            <TextView
+                android:id="@+id/tv_foto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_koordinat"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="foto"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <ImageButton
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/tv_foto"
+                android:id="@+id/iv_lahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                tools:ignore="OnClick"
+                android:contentDescription="todo"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/jenis_lahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_lahan"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="jenis_lahan"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <LinearLayout
+                android:layout_toRightOf="@id/jenis_lahan"
+                android:id="@+id/ll2"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/iv_lahan"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:orientation="horizontal"
+                tools:ignore="UnknownId"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/jenis_lahan">
+
+                <CheckBox
+                    android:id="@+id/cb_kering"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:text="lahan_kering"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_basah"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:text="lahan_basah"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_rawa"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="lahan_rawa"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_binduk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jenis_lahan"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="bahan_induk"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/bahan_induk"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_binduk"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/ll2"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toEndOf="@id/tv_binduk"
+                android:layout_marginStart="5dp" />
+
+            <TextView
+                android:id="@+id/tv_landuse"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_below="@+id/tv_binduk"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="penggunaan_lahan"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/bahan_induk"
+                android:layout_toRightOf="@id/tv_landuse"
+                android:id="@+id/penggunaan_lahan"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toEndOf="@id/tv_landuse"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_relief"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_landuse"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="relief"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:id="@+id/relief"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/penggunaan_lahan"
+                android:layout_marginTop="9dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@id/tv_relief"
+                android:layout_toEndOf="@id/tv_relief"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_lereng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_relief"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="lereng"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <EditText
+                android:id="@+id/et_lereng"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/relief"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@id/tv_lereng"
+                android:layout_toRightOf="@id/tv_lereng"
+                android:autofillHints=""
+                android:inputType="number"
+                tools:ignore="DuplicateIds,LabelFor" />
+
+            <TextView
+                android:id="@+id/kondisi_lahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_lereng"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="kondisi_lahan"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <LinearLayout
+                android:layout_toRightOf="@id/kondisi_lahan"
+                android:id="@+id/ll3"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/tv_lereng"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:orientation="horizontal"
+                tools:ignore="UnknownId"
+                android:layout_toEndOf="@id/kondisi_lahan"
+                android:layout_marginStart="5dp">
+
+                <CheckBox
+                    android:id="@+id/cb_teras"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:text="teras"
+                    android:textSize="12sp"
+                    tools:ignore="DuplicateIds"/>
+
+                <CheckBox
+                    android:id="@+id/cb_nonteras"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:text="non_teras"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_drainase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/kondisi_lahan"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="drainase"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:ignore="UnusedAttribute" />
+
+            <Spinner
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/ll3"
+                android:layout_toRightOf="@+id/tv_drainase"
+                android:id="@+id/drainase"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@+id/tv_drainase"/>
+
+            <TextView
+                android:id="@+id/tv_ph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_drainase"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="reaksi_tanah_ph_tanah"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/drainase"
+                android:layout_toRightOf="@id/tv_ph"
+                android:id="@+id/reaksi_tanah"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@id/tv_ph"/>
+
+            <TextView
+                android:id="@+id/tv_tanaman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ph"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="tanaman_utama"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop"/>
+
+            <Spinner
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/reaksi_tanah"
+                android:layout_toRightOf="@id/tv_tanaman"
+                android:id="@+id/tanaman_utama"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@id/tv_tanaman"/>
+
+            <TextView
+                android:id="@+id/tekstur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_tanaman"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="tekstur"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:ignore="UnusedAttribute" />
+
+            <LinearLayout
+                android:layout_toRightOf="@id/tekstur"
+                android:id="@+id/ll4"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/tanaman_utama"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:orientation="horizontal"
+                tools:ignore="UnknownId"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/tekstur">
+
+                <CheckBox
+                    android:id="@+id/cb_halus"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="halus"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_sedang"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="sedang"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_kasar"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="kasar"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_kedalaman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tekstur"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFF"
+                android:text="kedalaman_olah"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                tools:targetApi="lollipop" />
+
+            <EditText
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/ll4"
+                android:layout_toRightOf="@id/tv_kedalaman"
+                android:id="@+id/et_kedalaman"
+                android:layout_width="92dp"
+                android:layout_height="25dp"
+                android:inputType="number"
+                tools:ignore="DuplicateIds,LabelFor"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@id/tv_kedalaman"
+                android:autofillHints="" />
+            <LinearLayout
+                android:id="@+id/ll5"
+                android:layout_below="@+id/et_kedalaman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_tanam"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="musim_tanam"
+                        android:textColor="#155C1D"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#155C1D"
+                        android:textSize="14sp"
+                        android:layout_width="92dp"
+                        android:layout_height="wrap_content"
+                        android:text="MH"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#155C1D"
+                        android:textSize="14sp"
+                        android:layout_width="92dp"
+                        android:layout_height="wrap_content"
+                        android:text="MK-1"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#155C1D"
+                        android:textSize="14sp"
+                        android:layout_width="92dp"
+                        android:layout_height="wrap_content"
+                        android:text="MK-2"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_polatanam"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="- Pola Tanam"
+                        android:textColor="#020202"
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText" />
+                    <Spinner
+                        android:id="@+id/polaMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp" />
+                    <Spinner
+                        android:id="@+id/polaMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"/>
+                    <Spinner
+                        android:id="@+id/polaMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_varietas"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="- Varietas"
+                        android:textColor="#020202"
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText" />
+                    <Spinner
+                        android:id="@+id/varietasMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"/>
+                    <Spinner
+                        android:id="@+id/varietasMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"/>
+                    <Spinner
+                        android:id="@+id/varietasMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_provitas"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="- Provitas"
+                        android:textColor="#020202"
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+                        android:id="@+id/provitasMH"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        tools:ignore="LabelFor,TextFields" />
+
+                    <EditText
+                        android:id="@+id/provitasMK1"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:id="@+id/provitasMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:inputType="number"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#155C1D"
+                    android:text="jenis_pupuk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/ll10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_organik"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="organik_kg_ha"
+                        android:textColor="#020202"
+                        android:textSize="14sp"/>
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/organikMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/organikMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/organikMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_urea"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="urea_kg_ha"
+                        android:textColor="#020202"
+                        android:textSize="14sp"
+                        tools:ignore="TooManyViews" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/ureaMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/ureaMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/ureaMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_kcl"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="kcl_kg_ha"
+                        android:textColor="#020202"
+                        android:textSize="14sp"
+                        tools:ignore="DuplicateIds" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/kclMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/kclMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/kclMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_phonska"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="phonska_kg_ha"
+                        android:textColor="#020202"
+                        android:textSize="14sp"/>
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/phonskaMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/phonskaMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/phonskaMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_sp36"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="sp36_kg_ha"
+                        android:textColor="#020202"
+                        android:textSize="14sp"/>
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/sp36MH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/sp36MK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/sp36MK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_za"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:text="za_kg_ha"
+                        android:textColor="#020202"
+                        android:textSize="14sp"/>
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/zaMH"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/zaMK1"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/zaMK2"
+                        android:gravity="center"
+                        android:textColor="#020202"
+                        android:textSize="13sp"
+                        android:layout_width="92dp"
+                        android:layout_height="25dp"
+                        android:autofillHints=""
+                        tools:ignore="LabelFor" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_below="@+id/ll5"
+                android:layout_marginTop="10dp"
+                android:id="@+id/catatan"
+                android:textColor="#020202"
+                android:layout_marginLeft="10dp"
+                android:text="catatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+            <EditText
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/catatan"
+                android:id="@+id/edCatatan"
+                android:inputType="textLongMessage"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:autofillHints=""
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="5dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:background="#438C1D"
+        android:padding="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/cancel_action"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:layout_weight="1"
+            tools:ignore="ButtonStyle">
+        </Button>
+
+        <Button
+            android:id="@+id/simpan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="simpan"
+            android:layout_weight="1"
+            tools:ignore="ButtonStyle">
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.sisuperjatim;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,11 +27,14 @@ import androidx.fragment.app.Fragment;
 import com.kishan.askpermission.PermissionInterface;
 
 import androidx.fragment.app.FragmentManager;
+
+import dalvik.system.PathClassLoader;
+
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 
 public class MainActivity extends AppCompatActivity implements PermissionCallback, ErrorCallback {
-    public static final int PERMISSION_REQUEST_CODE = 1;
+    public static final int PERMISSION_REQUEST_CODE= 1;
     public static FragmentManager fragmentManager;
     HomeFragment homeFragment = new HomeFragment();
 
@@ -40,15 +44,17 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
     BottomNavigationView btnNav;
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        requestStoragePermission();
         fragmentManager = getSupportFragmentManager();
-
-
 
         btnNav = findViewById(R.id.nav_view);
         btnNav.setOnNavigationItemSelectedListener(navListener);
@@ -57,34 +63,37 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
         HomeFragment.newInstance();
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
 
-        } else {
-            requeststoragepermission();
-        }
 
     }
 
-    private void requeststoragepermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_FINE_LOCATION)) {
-            new AlertDialog.Builder(this).setTitle("Permission Needed").setMessage("This Permission is needed").create().show();
 
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
+
+
+
+   public void requestStoragePermission(){
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_FINE_LOCATION)){
+
+        }else {
+            ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION},PERMISSION_REQUEST_CODE);
         }
-    }
+   }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == PERMISSION_REQUEST_CODE ) {
+
+
+            if (grantResults.length > 0 && grantResults[0]  == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "PERMISSIION GRANTED", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "PERMISSIION DENIED", Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 
 
@@ -158,7 +167,10 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
 
     }
 
+
+
 }
+
 
 
 
